@@ -1,127 +1,35 @@
-/* Estilos generales para la sección Hero */
 .hero-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   text-align: center;
-  padding: 5rem 1.5rem;
-  background-color: #f9fafb;
+  padding: 4rem 1rem;
+  background-color: var(--secondary-color);
   border-radius: 8px;
-  margin: 2rem 0;
 }
 
 .hero-section h1 {
-  font-size: 3.5rem;
-  color: #111827;
+  font-size: 2.5rem;
   margin-bottom: 1rem;
-  font-weight: 700;
 }
 
 .hero-section p {
-  font-size: 1.25rem;
-  color: #4b5563;
-  max-width: 700px;
-  margin: 0 auto;
-  line-height: 1.6;
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+  max-width: 600px;
 }
 
-.hero-section .cta-button {
-  display: inline-block;
-  margin-top: 2rem;
-  padding: 1rem 2rem;
-  background-color: #10B981; /* Verde esmeralda sereno */
+.cta-button {
+  background-color: var(--primary-color);
   color: white;
-  text-decoration: none;
-  border-radius: 8px;
+  padding: 0.8rem 1.5rem;
+  border-radius: 50px;
   font-weight: bold;
   transition: background-color 0.3s ease;
 }
 
-.hero-section .cta-button:hover {
-  background-color: #059669; /* Un tono más oscuro al pasar el ratón */
-}
-
-/* Estilos para las secciones */
-.content-section {
-  padding: 4rem 1rem;
-  text-align: center;
-}
-
-.content-section h2 {
-  font-size: 2.5rem;
-  margin-bottom: 3rem;
-  color: #111827;
-}
-
-.featured-services-container {
-  display: flex;
-  justify-content: center;
-  gap: 2rem;
-  flex-wrap: wrap;
-}
-
-/* Estilos para las tarjetas de servicio */
-.service-card {
-  border: 1px solid #e5e7eb;
-  padding: 2.5rem 2rem;
-  border-radius: 8px;
-  width: 320px;
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-  background-color: #ffffff;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.service-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-}
-
-.service-card h3 {
-  font-size: 1.5rem;
-  color: #111827;
-}
-
-.service-card p {
-  color: #4b5563;
-  margin: 1rem 0 1.5rem 0;
-  line-height: 1.5;
-}
-
-.service-card .service-link {
-  font-weight: 600;
-  color: #10B981;
-  text-decoration: none;
-}
-
-/* Estilos para la sección de testimonios */
-.testimonial-section {
-  padding: 4rem 1.5rem;
-  background-color: #f9fafb;
-  border-radius: 8px;
-  margin: 2rem 0;
-  text-align: center;
-}
-
-.testimonial-section h2 {
-    font-size: 2.5rem;
-    margin-bottom: 1rem;
-    color: #111827;
-}
-
-.testimonial-quote {
-  margin: 2rem auto;
-  max-width: 650px;
-  font-style: italic;
-  font-size: 1.25rem;
-  color: #374151;
-  line-height: 1.7;
-}
-
-.testimonial-quote footer {
-  margin-top: 1.5rem;
-  font-weight: bold;
-  font-style: normal;
-  color: #111827;
-}
-
-.testimonial-link {
-    font-weight: 600;
-    color: #10B981;
+.cta-button:hover {
+  background-color: var(--accent-color);
+  color: white;
 }

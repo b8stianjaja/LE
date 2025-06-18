@@ -1,0 +1,76 @@
+.detailPage {
+  padding: var(--spacing-md);
+}
+
+.backLink {
+  display: inline-block;
+  margin-bottom: var(--spacing-lg);
+  color: var(--color-accent);
+  font-weight: bold;
+}
+
+.title {
+  text-align: center;
+  font-size: 3rem;
+}
+
+.category {
+  text-align: center;
+  font-size: 1rem;
+  color: var(--color-accent);
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  margin-bottom: var(--spacing-xl);
+}
+
+.content {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: var(--spacing-xl);
+}
+
+.mainContent h3 {
+  border-bottom: 2px solid var(--color-secondary);
+  padding-bottom: var(--spacing-sm);
+  margin-top: var(--spacing-lg);
+}
+
+.benefitList {
+  list-style: none;
+  padding-left: 0;
+}
+
+.benefitList li {
+  position: relative;
+  padding-left: var(--spacing-md);
+  margin-bottom: var(--spacing-sm);
+}
+
+.benefitList li::before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  color: var(--color-primary);
+  font-weight: bold;
+}
+
+.infoBox {
+  background: var(--color-white);
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow);
+  padding: var(--spacing-lg);
+  position: sticky;
+  top: 120px; /* Adjust based on navbar height */
+}
+
+.infoBox h4 {
+  margin-top: 0;
+  border-bottom: 2px solid var(--color-secondary);
+  padding-bottom: var(--spacing-sm);
+}
+
+.contactButton {
+  width: 100%;
+  text-align: center;
+  margin-top: var(--spacing-md);
+}

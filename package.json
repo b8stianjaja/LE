@@ -1,0 +1,13 @@
+{
+  "name": "liberacion-energetica",
+  "version": "1.0.0",
+  "private": true,
+  "workspaces": [
+    "frontend",
+    "backend"
+  ],
+  "scripts": {
+    "install": "npm install --workspace=frontend && npm install --workspace=backend",
+    "dev": "npm run dev --workspace=backend & npm run dev --workspace=frontend"
+  }
+}
