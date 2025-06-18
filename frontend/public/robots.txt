@@ -1,0 +1,4 @@
+# frontend/public/robots.txt
+User-agent: *
+Allow: /
+Sitemap: https://www.liberacionenergetica.cl/sitemap.xml

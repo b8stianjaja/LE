@@ -1,58 +1,61 @@
-import React, { useEffect } from 'react';
-import { Link } from 'react-router-dom';
-import './HomePage.css'; // ¡Importante! Importamos el archivo CSS
+import React, { useEffect, Suspense, lazy } from 'react';
+import './HomePage.css'; // Estilos específicos para la Home
+
+// Carga diferida (Lazy Loading) para componentes que no son críticos para el LCP
+const TestimonialsCarousel = lazy(() => import('../components/TestimonialsCarousel'));
 
 const HomePage = () => {
   useEffect(() => {
-    document.title = 'Liberación Energética | Inicio | Sanación Holística en Llay-Llay';
-    const metaDescription = document.querySelector('meta[name="description"]');
-    if (metaDescription) {
-      metaDescription.setAttribute('content', 'Tu espacio para la sanación holística y liberación energética en Llay-Llay, Valparaíso. Descubre el equilibrio y bienestar a través de nuestras terapias.');
-    }
+    document.title = 'Liberación Energética Llay-Llay | Tu Espacio para una Vida Alineada';
+    document.querySelector('meta[name="description"]').setAttribute("content", "Descubre prácticas holísticas en Llay-Llay para disolver energía estancada, fomentar tu equilibrio y bienestar. Inicia tu transformación personal hoy.");
   }, []);
 
   return (
-    <div>
+    <div className="home-page">
+      {/* 1. Sección Hero Dinámica */}
       <section className="hero-section">
-        <h1>Tu Espacio para una Vida Alineada</h1>
-        <p>
-          Prácticas holísticas para disolver la energía estancada, fomentar el equilibrio y apoyar tu transformación personal en <strong>Llay-Llay</strong> y online.
-        </p>
-        <Link to="/servicios" className="cta-button">
-          Explorar Servicios
-        </Link>
-      </section>
-
-      <section className="content-section">
-        <h2>Servicios Destacados</h2>
-        <div className="featured-services-container">
-            <ServiceCard id="alineacion-chakras" name="Alineación de Chakras" tagline="Recupera tu centro y vitalidad." />
-            <ServiceCard id="terapia-floral-bach" name="Terapia Floral de Bach" tagline="Armonía emocional desde la naturaleza." />
-            <ServiceCard id="limpieza-energetica" name="Limpieza Energética" tagline="Libera tu espacio y tu ser." />
+        {/* Aquí iría la imagen o animación sutil. Se optimiza con CSS o un componente <Image /> optimizado */}
+        <div className="hero-content">
+          <h1>Tu Espacio para una Vida Alineada</h1>
+          <p>Disuelve la energía estancada, fomenta el equilibrio y recupera tu vitalidad.</p>
         </div>
       </section>
 
-      <section className="testimonial-section">
-        <h2>Voces de Transformación</h2>
-        <blockquote className="testimonial-quote">
-          "Una experiencia transformadora. Encontré una paz que no sabía que era posible y una guía clara para mi camino."
-          <footer>- María G., Llay-Llay</footer>
-        </blockquote>
-        <Link to="/transformaciones" className="testimonial-link">Lee más testimonios</Link>
+      {/* 2. Introducción Concisa */}
+      <section className="intro-section">
+        <h2>¿Qué es la Liberación Energética?</h2>
+        <p>Un conjunto de prácticas holísticas diseñadas para restaurar el flujo natural de tu energía, promoviendo sanación emocional y claridad mental. Encuentra tu centro en nuestro espacio en Llay-Llay.</p>
       </section>
+
+      {/* 3. Servicios Destacados */}
+      <section className="featured-services">
+        <h2>Nuestros Caminos hacia la Armonía</h2>
+        <div className="services-grid">
+          {/* Estos datos podrían venir de tu API o estar definidos aquí */}
+          <div className="service-card">
+            <h3>Alineación de Chakras</h3>
+            <p>Equilibra tus centros energéticos para un bienestar integral.</p>
+            <a href="/services/1">Ver Más</a>
+          </div>
+          <div className="service-card">
+            <h3>Terapia Floral de Bach</h3>
+            <p>Encuentra armonía emocional con esencias florales personalizadas.</p>
+            <a href="/services/2">Ver Más</a>
+          </div>
+          <div className="service-card">
+            <h3>Limpieza Energética</h3>
+            <p>Libera tu campo energético de influencias externas y estrés.</p>
+            <a href="/services/3">Ver Más</a>
+          </div>
+        </div>
+      </section>
+
+      {/* 4. Validación Social (Lazy Loaded) */}
+      <Suspense fallback={<div>Cargando testimonios...</div>}>
+        <TestimonialsCarousel />
+      </Suspense>
     </div>
   );
 };
-
-// Componente auxiliar refactorizado para usar clases CSS
-const ServiceCard = ({ id, name, tagline }) => (
-  <div className="service-card">
-    <h3>{name}</h3>
-    <p>{tagline}</p>
-    <Link to={`/servicios/${id}`} className="service-link">
-        Más Información &rarr;
-    </Link>
-  </div>
-);
 
 export default HomePage;

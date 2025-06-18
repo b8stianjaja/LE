@@ -1,60 +1,29 @@
-import React, { useState, useEffect } from 'react';
+// frontend/src/pages/TransformationsPage.jsx
+import React, { useEffect } from 'react';
+
+// Idealmente, estos datos vendrían de una API o un archivo JSON.
+const testimonials = [
+  { id: 1, name: 'María G.', location: 'Llay-Llay', text: 'El antes y después en mi energía es increíble. Me siento más ligera y en paz.' },
+  { id: 2, name: 'Carlos R.', location: 'Online', text: 'Las sesiones a distancia fueron sorprendentemente poderosas. Recomiendo totalmente la mentoría energética.' }
+];
 
 const TransformationsPage = () => {
-    const [testimonials, setTestimonials] = useState([]);
-    const [loading, setLoading] = useState(true);
-    const [error, setError] = useState(null);
-  
     useEffect(() => {
-        document.title = 'Transformaciones de Clientes | Liberación Energética';
-        document.querySelector('meta[name="description"]').setAttribute('content', 'Lee las historias y testimonios de personas que han experimentado una transformación positiva a través de las terapias de Liberación Energética en Llay-Llay y online.');
-
-        fetch('http://localhost:5000/api/testimonials')
-        .then(response => {
-          if (!response.ok) {
-            throw new Error('No se pudo obtener la lista de testimonios');
-          }
-          return response.json();
-        })
-        .then(data => {
-          setTestimonials(data);
-          setLoading(false);
-        })
-        .catch(error => {
-          setError(error.message);
-          setLoading(false);
-        });
+        document.title = 'Transformaciones | Voces de Liberación Energética';
+        document.querySelector('meta[name="description"]').setAttribute("content", "Lee las historias y testimonios de clientes que han experimentado una profunda transformación y bienestar a través de nuestras terapias energéticas.");
     }, []);
-  
-    if (loading) return <p>Cargando testimonios...</p>;
-    if (error) return <p>Error: {error}</p>;
 
-  return (
-    <div>
-        <div style={{ maxWidth: '800px', margin: '2rem auto' }}>
-            <h1 style={{ textAlign: 'center', fontSize: '3rem', marginBottom: '2rem' }}>Voces de Liberación Energética</h1>
-            
-            <div style={{ display: 'grid', gap: '2rem' }}>
-                {testimonials.map(testimonial => (
-                    <blockquote key={testimonial.id} style={{
-                        margin: 0,
-                        padding: '2rem',
-                        borderLeft: '5px solid #10B981',
-                        background: '#F9FAFB',
-                        borderRadius: '0 8px 8px 0'
-                    }}>
-                        <p style={{ fontStyle: 'italic', fontSize: '1.2rem', color: '#374151', marginTop: 0 }}>
-                            "{testimonial.quote}"
-                        </p>
-                        <footer style={{ textAlign: 'right', fontWeight: 'bold', color: '#111827', marginTop: '1rem' }}>
-                            - {testimonial.author}, {testimonial.location}
-                        </footer>
-                    </blockquote>
-                ))}
-            </div>
+    return (
+        <div>
+            <h1>Voces de Liberación Energética</h1>
+            {testimonials.map(item => (
+                <blockquote key={item.id} className="testimonial-card">
+                    <p>"{item.text}"</p>
+                    <footer>- {item.name}, {item.location}</footer>
+                </blockquote>
+            ))}
         </div>
-    </div>
-  );
+    );
 };
 
 export default TransformationsPage;
