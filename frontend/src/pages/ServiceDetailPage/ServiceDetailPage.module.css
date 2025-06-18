@@ -1,0 +1,66 @@
+.detailPage {
+  width: 100%;
+}
+
+.hero {
+  height: 40vh;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+
+.heroOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.serviceTitle {
+  color: white;
+  font-size: 3rem;
+  text-align: center;
+}
+
+.contentArea {
+  padding-top: var(--spacing-lg);
+}
+
+.contentArea h2 {
+  font-size: 2rem;
+  color: var(--primary-color);
+  margin-top: var(--spacing-lg);
+  margin-bottom: var(--spacing-md);
+}
+
+.description, .benefitsList {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  max-width: 800px;
+}
+
+.benefitsList {
+  list-style-position: inside;
+  padding-left: var(--spacing-md);
+}
+
+.benefitsList li {
+  margin-bottom: var(--spacing-sm);
+}
+
+.ctaSection {
+  text-align: center;
+  padding: var(--spacing-xl) 0;
+  margin-top: var(--spacing-lg);
+  border-top: 1px solid #eee;
+}
+
+.ctaSection p {
+  font-size: 1.2rem;
+  margin-bottom: var(--spacing-md);
+}
