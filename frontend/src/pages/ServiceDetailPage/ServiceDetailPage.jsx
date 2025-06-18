@@ -4,7 +4,7 @@ import { useApi } from '../../hooks/useApi';
 import { getServiceById } from '../../services/api';
 import Spinner from '../../components/common/Spinner/Spinner';
 import Button from '../../components/common/Button/Button';
-import TestimonialsCarousel from '../../components/services/TestimonialsCarousel/TestimonialsCarousel';
+import TestimonialsCarousel from '../../services/TestimonialsCarousel/TestimonialsCarousel'; // Corrected import path
 import styles from './ServiceDetailPage.module.css';
 
 const ServiceDetailPage = () => {

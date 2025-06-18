@@ -1,6 +1,6 @@
 import React from 'react';
-import Navbar from '../../components/layout/Navbar/Navbar';
-import Footer from '../../components/layout/Footer/Footer';
+import Navbar from '../Navbar/Navbar'; // Corrected import path
+import Footer from '../Footer/Footer'; // Corrected import path
 import styles from './MainLayout.module.css';
 
 const MainLayout = ({ children }) => (

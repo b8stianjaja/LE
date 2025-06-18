@@ -17,3 +17,8 @@ export const getServiceById = async (id) => {
   const response = await fetch(`${API_URL}/services/${id}`);
   return handleResponse(response);
 };
+
+export const getTestimonials = async () => {
+  const response = await fetch(`${API_URL}/testimonials`);
+  return handleResponse(response);
+};
