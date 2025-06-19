@@ -3,19 +3,19 @@ import Container from '@/shared/ui/Container/Container';
 import { useIntersectionObserver } from '@/shared/hooks/useIntersectionObserver'; // Import the hook
 import styles from './HomePage.module.css';
 
-// --- No changes to ServicePreviewCard or TestimonialCard components ---
+// --- FIXED: Added correct classNames for styling ---
 const ServicePreviewCard = ({ title, description, link, className }) => (
   <div className={`${styles.serviceCard} ${className}`}>
-    <h3>{title}</h3>
-    <p>{description}</p>
+    <h3 className={styles.serviceTitle}>{title}</h3>
+    <p className={styles.serviceDescription}>{description}</p>
     <Link to={link} className={styles.cardLink}>Leer más</Link>
   </div>
 );
 
 const TestimonialCard = ({ quote, author, className }) => (
   <div className={`${styles.testimonialCard} ${className}`}>
-    <p className={styles.quote}>"{quote}"</p>
-    <span className={styles.author}>- {author}</span>
+    <p className={styles.testimonialText}>"{quote}"</p>
+    <span className={styles.testimonialAuthor}>- {author}</span>
   </div>
 );
 // --------------------------------------------------------------------

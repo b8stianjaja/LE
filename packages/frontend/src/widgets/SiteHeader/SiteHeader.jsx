@@ -33,7 +33,7 @@ export const SiteHeader = () => {
     <header className={`${styles.header} ${isSticky ? styles.sticky : ''}`}>
       <Container>
         <div className={styles.headerContent}>
-          <Link to="/" className={styles.logo}>
+          <Link to="/" className={styles.logo} onClick={closeMobileMenu}>
             Liberación Energética
           </Link>
 
@@ -46,7 +46,12 @@ export const SiteHeader = () => {
           </nav>
 
           {/* Hamburger Menu Button */}
-          <button className={styles.hamburger} onClick={toggleMobileMenu} aria-label="Open menu">
+          <button 
+            className={styles.hamburger} 
+            onClick={toggleMobileMenu} 
+            aria-label={isMobileMenuOpen ? "Close menu" : "Open menu"}
+            aria-expanded={isMobileMenuOpen}
+          >
             <span className={styles.hamburgerBar}></span>
             <span className={styles.hamburgerBar}></span>
             <span className={styles.hamburgerBar}></span>
@@ -56,13 +61,13 @@ export const SiteHeader = () => {
       
       {/* Mobile Navigation Menu */}
       {isMobileMenuOpen && (
-        <div className={styles.mobileNav}>
+        <nav className={styles.mobileNav}>
            <button className={styles.closeButton} onClick={closeMobileMenu} aria-label="Close menu">&times;</button>
           <NavLink to="/" onClick={closeMobileMenu} className={({ isActive }) => (isActive ? styles.active : '')}>Inicio</NavLink>
           <NavLink to="/servicios" onClick={closeMobileMenu} className={({ isActive }) => (isActive ? styles.active : '')}>Servicios</NavLink>
           <NavLink to="/quien-soy" onClick={closeMobileMenu} className={({ isActive }) => (isActive ? styles.active : '')}>Quién Soy</NavLink>
           <NavLink to="/contacto" onClick={closeMobileMenu} className={({ isActive }) => (isActive ? styles.active : '')}>Contacto</NavLink>
-        </div>
+        </nav>
       )}
     </header>
   );

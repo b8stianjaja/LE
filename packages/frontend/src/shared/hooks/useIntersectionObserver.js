@@ -5,6 +5,8 @@ export const useIntersectionObserver = (options) => {
   const elementRef = useRef(null);
 
   useEffect(() => {
+    const element = elementRef.current;
+
     const observer = new IntersectionObserver(
       ([entry]) => {
         // We only want this to trigger once
@@ -16,14 +18,13 @@ export const useIntersectionObserver = (options) => {
       options
     );
 
-    if (elementRef.current) {
-      observer.observe(elementRef.current);
+    if (element) {
+      observer.observe(element);
     }
 
     return () => {
-      if (elementRef.current) {
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-        observer.unobserve(elementRef.current);
+      if (element) {
+        observer.unobserve(element);
       }
     };
   }, [options]);

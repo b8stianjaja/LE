@@ -3,48 +3,48 @@
   padding: 4rem 0;
 }
 
-.pageTitle {
-  text-align: center;
-  font-size: 2.8rem;
-  color: var(--primary-color);
-  margin-bottom: 3rem;
-}
-
-.contentWrapper {
+.contentGrid {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 3rem;
+  gap: 2rem;
   align-items: center;
 }
 
-@media (min-width: 768px) {
-  .contentWrapper {
+@media (min-width: 992px) {
+  .contentGrid {
     grid-template-columns: 1fr 2fr;
+    gap: 4rem;
   }
 }
 
-.imageWrapper {
+.imageContainer {
   text-align: center;
 }
 
 .profileImage {
   max-width: 100%;
-  width: 300px;
-  height: 300px;
+  width: 350px;
+  height: 350px;
   border-radius: 50%;
   object-fit: cover;
-  border: 5px solid var(--secondary-color);
+  border: 7px solid var(--surface-color);
+  box-shadow: 0 4px 25px rgba(0,0,0,0.1);
 }
 
-.sectionTitle {
-  font-size: 1.8rem;
-  color: var(--heading-color);
-  margin-bottom: 1rem;
-  padding-bottom: 0.5rem;
-  border-bottom: 2px solid var(--accent-color);
-}
-
-.textWrapper p {
+.textContainer p {
   margin-bottom: 1.5rem;
   line-height: 1.8;
+}
+
+.nameTitle {
+  font-size: 2.8rem;
+  color: var(--heading-color);
+}
+
+.subtitle {
+  font-family: var(--secondary-font);
+  font-size: 1.2rem;
+  color: var(--accent-color);
+  font-weight: 700;
+  margin-bottom: 2rem;
 }

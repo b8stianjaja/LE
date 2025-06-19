@@ -1,11 +1,13 @@
+// src/widgets/Layout/Layout.jsx
+
 import { Outlet } from 'react-router-dom';
-import SiteHeader from '../SiteHeader/SiteHeader';
-import SiteFooter from '../SiteFooter/SiteFooter';
+import { SiteHeader } from '../SiteHeader/SiteHeader'; 
+import { SiteFooter } from '../SiteFooter/SiteFooter'; // This should now work correctly
 import styles from './Layout.module.css';
 
-const Layout = () => {
+export const Layout = () => {
   return (
-    <div className={styles.appContainer}>
+    <div className={styles.layout}>
       <SiteHeader />
       <main className={styles.mainContent}>
         <Outlet />
@@ -14,5 +16,3 @@ const Layout = () => {
     </div>
   );
 };
-
-export default Layout;

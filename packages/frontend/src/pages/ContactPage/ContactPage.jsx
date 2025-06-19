@@ -7,16 +7,19 @@ const ContactPage = () => {
   return (
     <div className={styles.contactPage}>
       <Container>
-        <h1 className={styles.mainTitle}>Contáctame</h1>
-        <p className={styles.subtitle}>
+        <h1 className={styles.pageTitle}>Contáctame</h1>
+        <p className={styles.pageSubtitle}>
           Estoy aquí para ayudarte en tu camino de sanación. Llena el formulario o contáctame directamente.
         </p>
 
-        <div className={styles.contentWrapper}>
-          <div className={styles.contactForm}>
-            <h2 className={styles.formTitle}>Enviar un Mensaje</h2>
-            {/* ACTION REQUIRED: Replace 'YOUR_FORM_ID' with your actual Formspree form ID.
-              You can get this from your Formspree dashboard.
+        <div className={styles.contactWrapper}>
+          <div className={styles.formSection}>
+            <h2 className={styles.infoTitle}>Enviar un Mensaje</h2>
+            {/* ACTION REQUIRED: 
+              1. Sign up for a free account at https://formspree.io/
+              2. Create a new form and get your form ID.
+              3. Replace 'YOUR_FORM_ID' below with your actual Formspree form ID.
+              Example: action="https://formspree.io/f/xqkrvqea" 
             */}
             <form 
               action="https://formspree.io/f/YOUR_FORM_ID" 
@@ -38,27 +41,22 @@ const ContactPage = () => {
             </form>
           </div>
 
-          <div className={styles.contactInfo}>
+          <div className={styles.infoWrapper}>
             <h2 className={styles.infoTitle}>Información de Contacto</h2>
-            <p className={styles.infoText}>
-              También puedes comunicarte conmigo a través de estos canales:
-            </p>
-            <ul className={styles.infoList}>
-              <li>
-                <FaEnvelope className={styles.icon} />
+            <div className={styles.infoBlock}>
+                <h3>Email</h3>
                 {/* ACTION REQUIRED: Replace with your email address */}
-                <a href="mailto:tuemail@example.com">tuemail@example.com</a>
-              </li>
-              <li>
-                <FaWhatsapp className={styles.icon} />
-                {/* ACTION REQUIRED: Replace with your WhatsApp number */}
-                <a href="https://wa.me/56912345678" target="_blank" rel="noopener noreferrer">+56 9 1234 5678</a>
-              </li>
-              <li>
-                <FaMapMarkerAlt className={styles.icon} />
-                <span>Llay-Llay, Valparaíso, Chile</span>
-              </li>
-            </ul>
+                <p><a href="mailto:tuemail@example.com">tuemail@example.com</a></p>
+            </div>
+            <div className={styles.infoBlock}>
+                <h3>WhatsApp</h3>
+                 {/* ACTION REQUIRED: Replace with your WhatsApp number (including country code) */}
+                <p><a href="https://wa.me/56912345678" target="_blank" rel="noopener noreferrer">+56 9 1234 5678</a></p>
+            </div>
+             <div className={styles.infoBlock}>
+                <h3>Ubicación</h3>
+                <p>Llay-Llay, Valparaíso, Chile</p>
+            </div>
           </div>
         </div>
       </Container>

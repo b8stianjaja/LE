@@ -1,24 +1,16 @@
 // src/widgets/SiteFooter/SiteFooter.jsx
-import Container from '@/shared/ui/Container/Container'; // CORRECTED IMPORT PATH
-import styles from './SiteFooter.module.css';
+import Container from "@/shared/ui/Container/Container";
+import styles from './SiteFooter.module.css'
 
-const SiteFooter = () => {
+// Ensure this is a named export
+export const SiteFooter = () => {
   const currentYear = new Date().getFullYear();
 
   return (
     <footer className={styles.footer}>
       <Container>
-        <div className={styles.footerContent}>
-          <p>
-            &copy; {currentYear} Liberación Energética. Todos los derechos reservados.
-          </p>
-          <p>
-            Llay-Llay, Valparaíso, Chile
-          </p>
-        </div>
+        <p>&copy; {currentYear} Liberación Energética. Todos los derechos reservados.</p>
       </Container>
     </footer>
   );
 };
-
-export default SiteFooter;
