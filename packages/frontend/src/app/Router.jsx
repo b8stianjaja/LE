@@ -1,10 +1,10 @@
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
-// Use the new alias for cleaner imports
 import { Layout } from '@/widgets/Layout';
 import { HomePage } from '@/pages/HomePage';
 import { ServicesPage } from '@/pages/ServicesPage';
 import { AboutPage } from '@/pages/AboutPage';
 import { ContactPage } from '@/pages/ContactPage';
+import { NotFoundPage } from '@/pages/NotFoundPage';
 
 const router = createBrowserRouter([
   {
@@ -25,6 +25,10 @@ const router = createBrowserRouter([
       {
         path: '/contacto',
         element: <ContactPage />,
+      },
+      {
+        path: '*', // Catches any route that doesn't match the ones above
+        element: <NotFoundPage />,
       },
     ],
   },

@@ -19,6 +19,7 @@
   --heading-color: #263238;   /* A deeper slate for headings */
   --background-color: #F5F5F5; /* A gentle off-white for the background */
   --surface-color: #FFFFFF;    /* Pure white for cards or elevated surfaces */
+  --accent-color: #E59F51;      /* A warm, inviting accent color */
 }
 
 body {
@@ -43,8 +44,6 @@ a {
 a:hover, a:focus {
   color: var(--heading-color);
 }
-
-/* Add these new classes at the end of the file */
 
 /* Animation Helper Classes */
 .fade-in-section {

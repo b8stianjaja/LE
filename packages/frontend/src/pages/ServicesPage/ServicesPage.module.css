@@ -1,0 +1,67 @@
+/* src/pages/ServicesPage/ServicesPage.module.css */
+.servicesPage {
+  padding: 4rem 0;
+}
+
+.pageTitle {
+  text-align: center;
+  font-size: 2.8rem;
+  color: var(--primary-color);
+  margin-bottom: 1rem;
+}
+
+.pageSubtitle {
+  text-align: center;
+  font-size: 1.1rem;
+  color: var(--text-color);
+  max-width: 600px;
+  margin: 0 auto 4rem auto;
+}
+
+.servicesGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 2rem;
+}
+
+.serviceCard {
+  background-color: var(--surface-color);
+  border-radius: 10px;
+  padding: 2.5rem 2rem;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+  display: flex;
+  flex-direction: column;
+  border-top: 5px solid var(--accent-color);
+}
+
+.serviceTitle {
+  font-size: 1.6rem;
+  color: var(--heading-color);
+  margin-bottom: 1rem;
+}
+
+.serviceDescription {
+  flex-grow: 1;
+  color: var(--text-color);
+  margin-bottom: 1.5rem;
+}
+
+.serviceMeta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid #eee;
+  padding-top: 1rem;
+  font-family: var(--secondary-font);
+  font-weight: 700;
+}
+
+.price {
+  color: var(--primary-color);
+  font-size: 1.1rem;
+}
+
+.duration {
+  color: var(--text-color);
+  font-size: 0.9rem;
+}

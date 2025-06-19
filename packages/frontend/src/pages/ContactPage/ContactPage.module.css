@@ -1,0 +1,124 @@
+/* src/pages/ContactPage/ContactPage.module.css */
+.contactPage {
+  padding: 4rem 0;
+}
+
+.pageTitle {
+  text-align: center;
+  font-size: 2.8rem;
+  color: var(--primary-color);
+  margin-bottom: 1rem;
+}
+
+.pageSubtitle {
+  text-align: center;
+  font-size: 1.1rem;
+  color: var(--text-color);
+  max-width: 600px;
+  margin: 0 auto 4rem auto;
+}
+
+.contactWrapper {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 4rem;
+  background-color: var(--surface-color);
+  padding: 3rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+}
+
+@media (min-width: 992px) {
+  .contactWrapper {
+    grid-template-columns: 2fr 1fr;
+  }
+}
+
+/* Form Styles */
+.formGroup {
+  margin-bottom: 1.5rem;
+}
+
+.formGroup label {
+  display: block;
+  font-family: var(--secondary-font);
+  font-weight: 700;
+  color: var(--heading-color);
+  margin-bottom: 0.5rem;
+}
+
+.formGroup input,
+.formGroup textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-family: var(--secondary-font);
+  font-size: 1rem;
+  transition: border-color 0.3s;
+}
+
+.formGroup input:focus,
+.formGroup textarea:focus {
+  outline: none;
+  border-color: var(--primary-color);
+}
+
+.submitButton {
+  width: 100%;
+  padding: 15px;
+  background-color: var(--accent-color);
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 1.1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.submitButton:hover {
+  background-color: #d68f41;
+}
+
+/* Info Styles */
+.infoWrapper {
+  padding-left: 0;
+}
+
+@media (min-width: 992px) {
+  .infoWrapper {
+    padding-left: 2rem;
+    border-left: 1px solid #eee;
+  }
+}
+
+.infoTitle {
+  font-size: 1.8rem;
+  color: var(--heading-color);
+  margin-bottom: 2rem;
+}
+
+.infoBlock {
+  margin-bottom: 2rem;
+}
+
+.infoBlock h3 {
+  font-family: var(--secondary-font);
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--primary-color);
+  margin-bottom: 0.5rem;
+}
+
+.infoBlock p {
+  line-height: 1.6;
+}
+
+.infoBlock a {
+  color: var(--text-color);
+}
+
+.infoBlock a:hover {
+  color: var(--accent-color);
+}

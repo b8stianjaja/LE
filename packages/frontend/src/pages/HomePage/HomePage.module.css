@@ -1,6 +1,6 @@
 /* GENERAL SECTION STYLES */
 .sectionTitle {
-  font-family: var(--font-headings);
+  font-family: var(--primary-font); /* Corrected variable */
   font-size: 2.5rem;
   text-align: center;
   color: var(--primary-color);
@@ -8,7 +8,7 @@
 }
 
 .sectionSubtitle {
-  font-family: var(--font-body);
+  font-family: var(--secondary-font); /* Corrected variable */
   font-size: 1.1rem;
   text-align: center;
   color: var(--text-color);
@@ -45,7 +45,7 @@
 }
 
 .heroTitle {
-  font-family: var(--font-headings);
+  font-family: var(--primary-font); /* Corrected variable */
   font-size: 4rem;
   font-weight: 700;
   line-height: 1.2;
@@ -53,14 +53,14 @@
 }
 
 .heroSubtitle {
-  font-family: var(--font-body);
+  font-family: var(--secondary-font); /* Corrected variable */
   font-size: 1.25rem;
   font-weight: 300;
   margin-bottom: 2rem;
 }
 
 .ctaButton {
-  font-family: var(--font-body);
+  font-family: var(--secondary-font); /* Corrected variable */
   background-color: var(--accent-color);
   color: white;
   padding: 15px 35px;
@@ -68,11 +68,13 @@
   text-decoration: none;
   font-size: 1.1rem;
   font-weight: 700;
+  border: none;
+  cursor: pointer;
   transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
 .ctaButton:hover {
-  background-color: #e59f51; /* Slightly darker accent */
+  background-color: #d68f41; /* Slightly darker accent */
   transform: translateY(-3px);
 }
 
@@ -103,21 +105,21 @@
 }
 
 .serviceCard h3 {
-  font-family: var(--font-headings);
+  font-family: var(--primary-font); /* Corrected variable */
   font-size: 1.5rem;
   color: var(--primary-color);
   margin-bottom: 1rem;
 }
 
 .serviceCard p {
-  font-family: var(--font-body);
+  font-family: var(--secondary-font); /* Corrected variable */
   color: var(--text-color);
   line-height: 1.6;
   margin-bottom: 1.5rem;
 }
 
 .cardLink {
-  font-family: var(--font-body);
+  font-family: var(--secondary-font); /* Corrected variable */
   color: var(--accent-color);
   text-decoration: none;
   font-weight: 700;
@@ -149,7 +151,7 @@
 }
 
 .quote {
-  font-family: var(--font-body);
+  font-family: var(--secondary-font); /* Corrected variable */
   font-style: italic;
   color: var(--text-color);
   line-height: 1.7;
@@ -157,7 +159,7 @@
 }
 
 .author {
-  font-family: var(--font-headings);
+  font-family: var(--primary-font); /* Corrected variable */
   font-weight: 700;
   color: var(--primary-color);
 }
