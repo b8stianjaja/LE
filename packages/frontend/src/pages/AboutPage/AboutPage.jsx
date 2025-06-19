@@ -6,28 +6,35 @@ const AboutPage = () => {
   return (
     <div className={styles.aboutPage}>
       <Container>
-        <h1 className={styles.pageTitle}>Sobre Mí</h1>
-        <div className={styles.contentWrapper}>
-          <div className={styles.imageWrapper}>
-            {/* Replace with a real image of yourself */}
+        <div className={styles.contentGrid}>
+          <div className={styles.imageContainer}>
+            {/* ACTION REQUIRED: Replace this placeholder image URL 
+              with a direct link to a photo of yourself.
+            */}
             <img 
-              src="https://images.unsplash.com/photo-1544164559-90f202005814?q=80&w=874&auto=format&fit=crop" 
-              alt="Terapeuta Holística" 
+              src="https://images.unsplash.com/photo-1593104547489-5cfb3839a3b5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80" 
+              alt="Retrato de [Tu Nombre]" 
               className={styles.profileImage}
             />
           </div>
-          <div className={styles.textWrapper}>
-            <h2 className={styles.sectionTitle}>Mi Viaje Hacia la Sanación Holística</h2>
-            <p>
-              ¡Hola! Soy [Tu Nombre], y mi pasión es guiar a las personas hacia un estado de equilibrio y bienestar integral. Mi camino en el mundo de las terapias holísticas comenzó como una búsqueda personal de sanación y autoconocimiento. Descubrí que el cuerpo, la mente y el espíritu están intrínsecamente conectados, y que la verdadera salud proviene de nutrir cada una de estas áreas.
-            </p>
-            <p>
-              Con años de estudio y práctica en [Menciona tus especialidades, ej: Reiki, Sanación con Cristales, etc.], he desarrollado un enfoque compasivo y personalizado para ayudar a mis clientes a liberar bloqueos energéticos, reducir el estrés y reconectar con su esencia.
-            </p>
-            <h2 className={styles.sectionTitle}>Mi Filosofía</h2>
-            <p>
-              Creo firmemente en el poder innato de cada individuo para sanar. Mi rol como terapeuta es ser una facilitadora en tu proceso, creando un espacio seguro y de apoyo donde puedas explorar tu mundo interior y activar tu propia capacidad de curación.
-            </p>
+          <div className={styles.textContainer}>
+            {/* ACTION REQUIRED: Replace '[Tu Nombre]' with your actual name. */}
+            <h1 className={styles.nameTitle}>[Tu Nombre]</h1>
+            <h2 className={styles.subtitle}>Tu Guía en el Viaje de la Sanación Energética</h2>
+            <div className={styles.bio}>
+              <p>
+                Desde siempre, he sentido una profunda conexión con el mundo energético y una vocación innata por ayudar a otros a encontrar su equilibrio y bienestar. Mi camino me ha llevado a especializarme en diversas terapias holísticas que abordan al ser humano de una manera integral: mente, cuerpo y espíritu.
+              </p>
+              <p>
+                {/* ACTION REQUIRED: Replace this paragraph with your own story, 
+                  specialties, and philosophy.
+                */}
+                Mi misión es crear un espacio seguro y sagrado donde puedas liberar bloqueos, sanar heridas emocionales y reconectar con tu esencia más pura. Me especializo en <strong>[Menciona tus especialidades, ej: Reiki, Sanación con Cristales, etc.]</strong>, utilizando estas herramientas para facilitar un proceso de transformación profundo y amoroso.
+              </p>
+              <p>
+                Creo firmemente en el poder que reside dentro de cada uno de nosotros para sanar y crear la vida que deseamos. Te invito a dar el primer paso en este hermoso viaje de autodescubrimiento y liberación energética.
+              </p>
+            </div>
           </div>
         </div>
       </Container>

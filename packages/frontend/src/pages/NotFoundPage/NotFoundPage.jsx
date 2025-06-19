@@ -1,6 +1,6 @@
 // src/pages/NotFoundPage/NotFoundPage.jsx
 import { Link } from 'react-router-dom';
-import { Container } from '@/shared/ui/Container/Container';
+import Container from '@/shared/ui/Container/Container'; // CORRECTED IMPORT
 import styles from './NotFoundPage.module.css';
 
 const NotFoundPage = () => {

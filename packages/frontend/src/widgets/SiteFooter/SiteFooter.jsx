@@ -1,4 +1,5 @@
-import Container from '../../shared/ui/Container/Container'; // Correct relative import
+// src/widgets/SiteFooter/SiteFooter.jsx
+import Container from '@/shared/ui/Container/Container'; // CORRECTED IMPORT PATH
 import styles from './SiteFooter.module.css';
 
 const SiteFooter = () => {

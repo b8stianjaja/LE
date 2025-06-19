@@ -1,87 +1,95 @@
-/* GENERAL SECTION STYLES */
-.sectionTitle {
-  font-family: var(--primary-font); /* Corrected variable */
-  font-size: 2.5rem;
-  text-align: center;
-  color: var(--primary-color);
-  margin-bottom: 0.5rem;
-}
-
-.sectionSubtitle {
-  font-family: var(--secondary-font); /* Corrected variable */
-  font-size: 1.1rem;
-  text-align: center;
-  color: var(--text-color);
-  max-width: 600px;
-  margin: 0 auto 3rem auto;
-}
-
-
-/* HERO SECTION */
+/* src/pages/HomePage/HomePage.module.css */
 .hero {
-  position: relative;
-  height: 90vh;
   display: flex;
-  align-items: center;
+  flex-direction: column;
   justify-content: center;
-  text-align: center;
+  align-items: center;
+  min-height: 80vh;
+  padding: 2rem;
   color: white;
-  background: url('https://images.unsplash.com/photo-1544164559-90f202005814?q=80&w=2574&auto=format&fit=crop') no-repeat center center/cover;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  /* ACTION REQUIRED: Replace this placeholder Unsplash URL 
+    with a link to your chosen high-quality background image.
+  */
+  background-image: url('https://images.unsplash.com/photo-1519681393784-d120267933ba?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80');
 }
 
-.heroOverlay {
+.hero::before {
+  content: '';
   position: absolute;
   top: 0;
   left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.5); /* Dark overlay for readability */
-}
-
-.heroContent {
-  position: relative; /* To sit on top of the overlay */
-  max-width: 800px;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5); /* Overlay */
   z-index: 1;
 }
 
+.heroContent {
+  position: relative;
+  z-index: 2;
+  max-width: 800px;
+}
+
 .heroTitle {
-  font-family: var(--primary-font); /* Corrected variable */
-  font-size: 4rem;
+  font-family: var(--primary-font);
+  font-size: 3.5rem;
   font-weight: 700;
-  line-height: 1.2;
   margin-bottom: 1rem;
+  line-height: 1.2;
 }
 
 .heroSubtitle {
-  font-family: var(--secondary-font); /* Corrected variable */
+  font-family: var(--secondary-font);
   font-size: 1.25rem;
-  font-weight: 300;
   margin-bottom: 2rem;
+  font-weight: 300;
 }
 
 .ctaButton {
-  font-family: var(--secondary-font); /* Corrected variable */
+  font-family: var(--secondary-font);
   background-color: var(--accent-color);
-  color: white;
-  padding: 15px 35px;
+  color: var(--text-dark);
+  padding: 1rem 2.5rem;
   border-radius: 50px;
   text-decoration: none;
-  font-size: 1.1rem;
   font-weight: 700;
-  border: none;
-  cursor: pointer;
-  transition: background-color 0.3s ease, transform 0.3s ease;
+  font-size: 1rem;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+  display: inline-block;
 }
 
 .ctaButton:hover {
-  background-color: #d68f41; /* Slightly darker accent */
+  background-color: #f0e6d2;
   transform: translateY(-3px);
 }
 
-/* SERVICES PREVIEW SECTION */
+/* Services Preview Section */
 .servicesPreview {
-  padding: 5rem 0;
-  background-color: #f9f9f9;
+  padding: 6rem 0;
+  background-color: #fdfcf9;
+}
+
+.sectionTitle {
+  text-align: center;
+  font-size: 2.5rem;
+  font-family: var(--primary-font);
+  margin-bottom: 1rem;
+  color: var(--text-dark);
+}
+
+.sectionSubtitle {
+  text-align: center;
+  font-size: 1.1rem;
+  max-width: 600px;
+  margin: 0 auto 4rem auto;
+  color: var(--text-light);
+  font-family: var(--secondary-font);
 }
 
 .servicesGrid {
@@ -91,88 +99,80 @@
 }
 
 .serviceCard {
-  background: white;
-  border-radius: 10px;
-  padding: 2rem;
+  background-color: white;
+  padding: 2.5rem;
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
   text-align: center;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .serviceCard:hover {
   transform: translateY(-10px);
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
 }
 
-.serviceCard h3 {
-  font-family: var(--primary-font); /* Corrected variable */
-  font-size: 1.5rem;
-  color: var(--primary-color);
-  margin-bottom: 1rem;
-}
-
-.serviceCard p {
-  font-family: var(--secondary-font); /* Corrected variable */
-  color: var(--text-color);
-  line-height: 1.6;
+.serviceIcon {
+  font-size: 3rem;
+  color: var(--accent-color);
   margin-bottom: 1.5rem;
 }
 
-.cardLink {
-  font-family: var(--secondary-font); /* Corrected variable */
-  color: var(--accent-color);
-  text-decoration: none;
-  font-weight: 700;
+.serviceTitle {
+  font-size: 1.5rem;
+  font-family: var(--primary-font);
+  color: var(--text-dark);
+  margin-bottom: 1rem;
 }
 
-.cardLink:hover {
-  text-decoration: underline;
+.serviceDescription {
+  font-family: var(--secondary-font);
+  color: var(--text-light);
+  line-height: 1.6;
 }
 
-/* TESTIMONIALS SECTION */
+/* Testimonials Section */
 .testimonials {
-  padding: 5rem 0;
-  background-color: var(--background-color);
+  padding: 6rem 0;
+  background-color: var(--primary-color);
+  color: white;
+}
+
+.testimonials .sectionTitle,
+.testimonials .sectionSubtitle {
+  color: white;
 }
 
 .testimonialsGrid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 2rem;
-  margin-top: 3rem;
+  margin-top: 4rem;
 }
 
 .testimonialCard {
-  background: white;
-  border-left: 5px solid var(--accent-color);
+  background-color: rgba(255, 255, 255, 0.05);
   padding: 2rem;
-  border-radius: 0 8px 8px 0;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+  border-radius: 15px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
-.quote {
-  font-family: var(--secondary-font); /* Corrected variable */
+.testimonialText {
+  font-family: var(--secondary-font);
   font-style: italic;
-  color: var(--text-color);
+  margin-bottom: 1.5rem;
   line-height: 1.7;
-  margin-bottom: 1rem;
 }
 
-.author {
-  font-family: var(--primary-font); /* Corrected variable */
+.testimonialAuthor {
+  font-family: var(--primary-font);
   font-weight: 700;
-  color: var(--primary-color);
+  text-align: right;
+  color: var(--accent-color);
 }
 
-/* RESPONSIVENESS */
 @media (max-width: 768px) {
   .heroTitle {
-    font-size: 2.8rem;
-  }
-  .heroSubtitle {
-    font-size: 1.1rem;
-  }
-  .sectionTitle {
-    font-size: 2rem;
+    font-size: 2.5rem;
   }
 }
