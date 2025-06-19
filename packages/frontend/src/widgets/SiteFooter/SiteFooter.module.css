@@ -1,6 +1,27 @@
+/* Add this code to your existing SiteFooter.module.css file */
+
 .footer {
-  padding: 20px 0;
-  background-color: #f8f9fa;
+  background-color: var(--heading-color); /* Dark slate background */
+  color: var(--background-color);       /* Soft off-white text */
+  padding: 2rem 0;
+  margin-top: auto; /* Pushes footer to the bottom */
+}
+
+.footerContent {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap; /* Allows stacking on smaller screens */
+  gap: 1rem;
   text-align: center;
-  border-top: 1px solid #e7e7e7;
+}
+
+.footerContent p {
+  margin: 0;
+  font-size: 0.9rem;
+}
+
+.footerContent a {
+  color: var(--surface-color);
+  text-decoration: underline;
 }

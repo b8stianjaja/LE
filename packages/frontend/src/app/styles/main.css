@@ -7,26 +7,39 @@
   padding: 0;
 }
 
-/* Define root variables for colors and fonts */
+/* Define root variables for a calming, professional color palette and fonts */
 :root {
   --primary-font: 'Lora', serif;
   --secondary-font: 'Montserrat', sans-serif;
-  --text-color: #333;
-  --background-color: #fff;
+
+  /* New Color Palette */
+  --primary-color: #8E9B8D;   /* A soft, earthy green for accents */
+  --secondary-color: #B2C2B8; /* A lighter, complementary green */
+  --text-color: #37474F;      /* A dark, soft slate for body text */
+  --heading-color: #263238;   /* A deeper slate for headings */
+  --background-color: #F5F5F5; /* A gentle off-white for the background */
+  --surface-color: #FFFFFF;    /* Pure white for cards or elevated surfaces */
 }
 
 body {
   font-family: var(--secondary-font);
   color: var(--text-color);
   background-color: var(--background-color);
-  line-height: 1.6;
+  line-height: 1.7; /* Increased line-height for better readability */
 }
 
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--primary-font);
+  color: var(--heading-color);
+  margin-bottom: 0.75rem;
 }
 
 a {
   text-decoration: none;
-  color: inherit;
+  color: var(--primary-color);
+  transition: color 0.3s ease;
+}
+
+a:hover, a:focus {
+  color: var(--heading-color);
 }

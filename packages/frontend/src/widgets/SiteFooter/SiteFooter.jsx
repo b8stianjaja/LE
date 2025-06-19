@@ -1,11 +1,20 @@
-import Container from '../../shared/ui/Container/Container';
+import { Container } from '../../shared/ui/Container';
 import styles from './SiteFooter.module.css';
 
 const SiteFooter = () => {
+  const currentYear = new Date().getFullYear();
+
   return (
     <footer className={styles.footer}>
       <Container>
-        <p>&copy; {new Date().getFullYear()} Liberación Energética. Todos los derechos reservados.</p>
+        <div className={styles.footerContent}>
+          <p>
+            &copy; {currentYear} Liberación Energética. Todos los derechos reservados.
+          </p>
+          <p>
+            Llay-Llay, Valparaíso, Chile
+          </p>
+        </div>
       </Container>
     </footer>
   );

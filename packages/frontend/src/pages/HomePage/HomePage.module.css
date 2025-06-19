@@ -1,0 +1,41 @@
+.hero {
+  text-align: center;
+  padding: 4rem 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  /* Optional: Add a subtle background image or pattern later */
+}
+
+.heroTitle {
+  font-size: 3rem;
+  font-weight: 500;
+  max-width: 600px;
+  margin-bottom: 1rem;
+}
+
+.heroSubtitle {
+  font-size: 1.2rem;
+  max-width: 550px;
+  margin-bottom: 2rem;
+  line-height: 1.6;
+}
+
+.ctaButton {
+  background-color: var(--primary-color);
+  color: var(--surface-color);
+  padding: 1rem 2rem;
+  border-radius: 50px; /* Fully rounded corners for a soft look */
+  font-weight: bold;
+  text-transform: uppercase;
+  font-size: 0.9rem;
+  letter-spacing: 1px;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.ctaButton:hover {
+  background-color: var(--heading-color);
+  color: var(--surface-color);
+  transform: translateY(-2px);
+}
