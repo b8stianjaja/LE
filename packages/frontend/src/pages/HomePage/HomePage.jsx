@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import styles from './HomePage.module.css';
 
 const HomePage = () => {
@@ -10,9 +11,9 @@ const HomePage = () => {
         Descubre un espacio de sanación en Llay-Llay a través de la liberación 
         energética, alineación de chakras y terapias florales.
       </p>
-      <a href="/services" className={styles.ctaButton}>
+      <Link to="/servicios" className={styles.ctaButton}>
         Explorar Terapias
-      </a>
+      </Link>
     </div>
   );
 };
