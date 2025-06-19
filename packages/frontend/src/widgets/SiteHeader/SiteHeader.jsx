@@ -1,5 +1,7 @@
 import { NavLink as RouterNavLink } from 'react-router-dom';
-import Container from 'shared/ui/Container/Container'; // Using absolute import
+import PropTypes from 'prop-types';
+// Use the new alias to correctly resolve the Container component
+import Container from '@/shared/ui/Container/Container';
 import styles from './SiteHeader.module.css';
 
 const NavLink = ({ to, children }) => (
@@ -12,6 +14,12 @@ const NavLink = ({ to, children }) => (
     {children}
   </RouterNavLink>
 );
+
+NavLink.propTypes = {
+  to: PropTypes.string.isRequired,
+  children: PropTypes.node.isRequired,
+};
+
 
 const SiteHeader = () => {
   return (
