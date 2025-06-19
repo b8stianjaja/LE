@@ -1,13 +1,15 @@
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
-import Layout from '../widgets/Layout/Layout';
-import HomePage from '../pages/HomePage/HomePage';
-import ServicesPage from '../pages/ServicesPage/ServicesPage';
-import AboutPage from '../pages/AboutPage/AboutPage';
-import ContactPage from '../pages/ContactPage/ContactPage';
+import { Layout } from '../widgets/Layout'; // Asumiremos que Layout está en widgets
+
+// Importación de páginas (las crearemos a continuación si no existen)
+import { HomePage } from '../pages/HomePage';
+import { ServicesPage } from '../pages/ServicesPage';
+import { AboutPage } from '../pages/AboutPage';
+import { ContactPage } from '../pages/ContactPage';
 
 const router = createBrowserRouter([
   {
-    element: <Layout />, // El Layout envuelve a todas las rutas hijas
+    element: <Layout />,
     children: [
       {
         path: '/',
@@ -25,7 +27,6 @@ const router = createBrowserRouter([
         path: '/contacto',
         element: <ContactPage />,
       },
-      // Aquí agregaremos más rutas después
     ],
   },
 ]);
