@@ -1,4 +1,4 @@
-import { Container } from '../../shared/ui/Container';
+import Container from '../../shared/ui/Container/Container'; // Correct relative import
 import styles from './SiteFooter.module.css';
 
 const SiteFooter = () => {
