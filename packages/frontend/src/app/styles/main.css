@@ -1,0 +1,32 @@
+/* A simple CSS reset */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* Define root variables for colors and fonts */
+:root {
+  --primary-font: 'Lora', serif;
+  --secondary-font: 'Montserrat', sans-serif;
+  --text-color: #333;
+  --background-color: #fff;
+}
+
+body {
+  font-family: var(--secondary-font);
+  color: var(--text-color);
+  background-color: var(--background-color);
+  line-height: 1.6;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--primary-font);
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}

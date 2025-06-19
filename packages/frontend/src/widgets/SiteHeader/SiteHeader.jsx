@@ -3,11 +3,6 @@ import Container from '../../shared/ui/Container/Container';
 import styles from './SiteHeader.module.css';
 
 const SiteHeader = () => {
-  // Esta función ayuda a aplicar una clase 'active' al NavLink que corresponda a la URL actual
-  const getNavLinkClass = ({ isActive }) => {
-    return isActive ? `${styles.navLink} ${styles.active}` : styles.navLink;
-  };
-
   return (
     <header className={styles.header}>
       <Container className={styles.headerContainer}>
@@ -15,16 +10,36 @@ const SiteHeader = () => {
           Liberación Energética
         </NavLink>
         <nav className={styles.nav}>
-          <NavLink to="/" className={getNavLinkClass}>
+          <NavLink
+            to="/"
+            className={({ isActive }) =>
+              isActive ? `${styles.navLink} ${styles.active}` : styles.navLink
+            }
+          >
             Inicio
           </NavLink>
-          <NavLink to="/servicios" className={getNavLinkClass}>
+          <NavLink
+            to="/servicios"
+            className={({ isActive }) =>
+              isActive ? `${styles.navLink} ${styles.active}` : styles.navLink
+            }
+          >
             Servicios
           </NavLink>
-          <NavLink to="/quien-soy" className={getNavLinkClass}>
+          <NavLink
+            to="/quien-soy"
+            className={({ isActive }) =>
+              isActive ? `${styles.navLink} ${styles.active}` : styles.navLink
+            }
+          >
             Quién Soy
           </NavLink>
-          <NavLink to="/contacto" className={getNavLinkClass}>
+          <NavLink
+            to="/contacto"
+            className={({ isActive }) =>
+              isActive ? `${styles.navLink} ${styles.active}` : styles.navLink
+            }
+          >
             Contacto
           </NavLink>
         </nav>
