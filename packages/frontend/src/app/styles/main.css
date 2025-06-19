@@ -43,3 +43,26 @@ a {
 a:hover, a:focus {
   color: var(--heading-color);
 }
+
+/* Add these new classes at the end of the file */
+
+/* Animation Helper Classes */
+.fade-in-section {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s cubic-bezier(0.6, 0.2, 0.4, 1), transform 0.8s cubic-bezier(0.6, 0.2, 0.4, 1);
+}
+
+.fade-in-section.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* You can create delayed animations easily */
+.delay-200 {
+  transition-delay: 200ms;
+}
+
+.delay-400 {
+  transition-delay: 400ms;
+}

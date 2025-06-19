@@ -1,41 +1,176 @@
-.hero {
+/* GENERAL SECTION STYLES */
+.sectionTitle {
+  font-family: var(--font-headings);
+  font-size: 2.5rem;
   text-align: center;
-  padding: 4rem 1rem;
+  color: var(--primary-color);
+  margin-bottom: 0.5rem;
+}
+
+.sectionSubtitle {
+  font-family: var(--font-body);
+  font-size: 1.1rem;
+  text-align: center;
+  color: var(--text-color);
+  max-width: 600px;
+  margin: 0 auto 3rem auto;
+}
+
+
+/* HERO SECTION */
+.hero {
+  position: relative;
+  height: 90vh;
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
-  /* Optional: Add a subtle background image or pattern later */
+  text-align: center;
+  color: white;
+  background: url('https://images.unsplash.com/photo-1544164559-90f202005814?q=80&w=2574&auto=format&fit=crop') no-repeat center center/cover;
+}
+
+.heroOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Dark overlay for readability */
+}
+
+.heroContent {
+  position: relative; /* To sit on top of the overlay */
+  max-width: 800px;
+  z-index: 1;
 }
 
 .heroTitle {
-  font-size: 3rem;
-  font-weight: 500;
-  max-width: 600px;
+  font-family: var(--font-headings);
+  font-size: 4rem;
+  font-weight: 700;
+  line-height: 1.2;
   margin-bottom: 1rem;
 }
 
 .heroSubtitle {
-  font-size: 1.2rem;
-  max-width: 550px;
+  font-family: var(--font-body);
+  font-size: 1.25rem;
+  font-weight: 300;
   margin-bottom: 2rem;
-  line-height: 1.6;
 }
 
 .ctaButton {
-  background-color: var(--primary-color);
-  color: var(--surface-color);
-  padding: 1rem 2rem;
-  border-radius: 50px; /* Fully rounded corners for a soft look */
-  font-weight: bold;
-  text-transform: uppercase;
-  font-size: 0.9rem;
-  letter-spacing: 1px;
+  font-family: var(--font-body);
+  background-color: var(--accent-color);
+  color: white;
+  padding: 15px 35px;
+  border-radius: 50px;
+  text-decoration: none;
+  font-size: 1.1rem;
+  font-weight: 700;
   transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
 .ctaButton:hover {
-  background-color: var(--heading-color);
-  color: var(--surface-color);
-  transform: translateY(-2px);
+  background-color: #e59f51; /* Slightly darker accent */
+  transform: translateY(-3px);
+}
+
+/* SERVICES PREVIEW SECTION */
+.servicesPreview {
+  padding: 5rem 0;
+  background-color: #f9f9f9;
+}
+
+.servicesGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.serviceCard {
+  background: white;
+  border-radius: 10px;
+  padding: 2rem;
+  text-align: center;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.serviceCard:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+}
+
+.serviceCard h3 {
+  font-family: var(--font-headings);
+  font-size: 1.5rem;
+  color: var(--primary-color);
+  margin-bottom: 1rem;
+}
+
+.serviceCard p {
+  font-family: var(--font-body);
+  color: var(--text-color);
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+}
+
+.cardLink {
+  font-family: var(--font-body);
+  color: var(--accent-color);
+  text-decoration: none;
+  font-weight: 700;
+}
+
+.cardLink:hover {
+  text-decoration: underline;
+}
+
+/* TESTIMONIALS SECTION */
+.testimonials {
+  padding: 5rem 0;
+  background-color: var(--background-color);
+}
+
+.testimonialsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-top: 3rem;
+}
+
+.testimonialCard {
+  background: white;
+  border-left: 5px solid var(--accent-color);
+  padding: 2rem;
+  border-radius: 0 8px 8px 0;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+}
+
+.quote {
+  font-family: var(--font-body);
+  font-style: italic;
+  color: var(--text-color);
+  line-height: 1.7;
+  margin-bottom: 1rem;
+}
+
+.author {
+  font-family: var(--font-headings);
+  font-weight: 700;
+  color: var(--primary-color);
+}
+
+/* RESPONSIVENESS */
+@media (max-width: 768px) {
+  .heroTitle {
+    font-size: 2.8rem;
+  }
+  .heroSubtitle {
+    font-size: 1.1rem;
+  }
+  .sectionTitle {
+    font-size: 2rem;
+  }
 }

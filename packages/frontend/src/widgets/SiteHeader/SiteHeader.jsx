@@ -1,42 +1,69 @@
-import { NavLink as RouterNavLink } from 'react-router-dom';
-import PropTypes from 'prop-types';
-// Use the new alias to correctly resolve the Container component
+import { useState, useEffect } from 'react';
+import { NavLink, Link } from 'react-router-dom';
 import Container from '@/shared/ui/Container/Container';
 import styles from './SiteHeader.module.css';
 
-const NavLink = ({ to, children }) => (
-  <RouterNavLink
-    to={to}
-    className={({ isActive }) =>
-      isActive ? `${styles.navLink} ${styles.active}` : styles.navLink
-    }
-  >
-    {children}
-  </RouterNavLink>
-);
+export const SiteHeader = () => {
+  const [isSticky, setIsSticky] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
-NavLink.propTypes = {
-  to: PropTypes.string.isRequired,
-  children: PropTypes.node.isRequired,
-};
+  useEffect(() => {
+    const handleScroll = () => {
+      // Make header sticky after scrolling down 10px
+      setIsSticky(window.scrollY > 10);
+    };
 
+    window.addEventListener('scroll', handleScroll);
 
-const SiteHeader = () => {
+    // Cleanup function to remove the event listener
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
+
+  const toggleMobileMenu = () => {
+    setIsMobileMenuOpen(!isMobileMenuOpen);
+  };
+  
+  const closeMobileMenu = () => {
+    setIsMobileMenuOpen(false);
+  }
+
   return (
-    <header className={styles.header}>
-      <Container className={styles.headerContainer}>
-        <RouterNavLink to="/" className={styles.logo}>
-          Liberación Energética
-        </RouterNavLink>
-        <nav className={styles.nav}>
-          <NavLink to="/">Inicio</NavLink>
-          <NavLink to="/servicios">Servicios</NavLink>
-          <NavLink to="/quien-soy">Quién Soy</NavLink>
-          <NavLink to="/contacto">Contacto</NavLink>
-        </nav>
+    <header className={`${styles.header} ${isSticky ? styles.sticky : ''}`}>
+      <Container>
+        <div className={styles.headerContent}>
+          <Link to="/" className={styles.logo}>
+            Liberación Energética
+          </Link>
+
+          {/* Desktop Navigation */}
+          <nav className={styles.navLinks}>
+            <NavLink to="/" className={({ isActive }) => (isActive ? styles.active : '')}>Inicio</NavLink>
+            <NavLink to="/servicios" className={({ isActive }) => (isActive ? styles.active : '')}>Servicios</NavLink>
+            <NavLink to="/quien-soy" className={({ isActive }) => (isActive ? styles.active : '')}>Quién Soy</NavLink>
+            <NavLink to="/contacto" className={({ isActive }) => (isActive ? styles.active : '')}>Contacto</NavLink>
+          </nav>
+
+          {/* Hamburger Menu Button */}
+          <button className={styles.hamburger} onClick={toggleMobileMenu} aria-label="Open menu">
+            <span className={styles.hamburgerBar}></span>
+            <span className={styles.hamburgerBar}></span>
+            <span className={styles.hamburgerBar}></span>
+          </button>
+        </div>
       </Container>
+      
+      {/* Mobile Navigation Menu */}
+      {isMobileMenuOpen && (
+        <div className={styles.mobileNav}>
+           <button className={styles.closeButton} onClick={closeMobileMenu} aria-label="Close menu">&times;</button>
+          <NavLink to="/" onClick={closeMobileMenu} className={({ isActive }) => (isActive ? styles.active : '')}>Inicio</NavLink>
+          <NavLink to="/servicios" onClick={closeMobileMenu} className={({ isActive }) => (isActive ? styles.active : '')}>Servicios</NavLink>
+          <NavLink to="/quien-soy" onClick={closeMobileMenu} className={({ isActive }) => (isActive ? styles.active : '')}>Quién Soy</NavLink>
+          <NavLink to="/contacto" onClick={closeMobileMenu} className={({ isActive }) => (isActive ? styles.active : '')}>Contacto</NavLink>
+        </div>
+      )}
     </header>
   );
 };
-
-export default SiteHeader;
