@@ -1,10 +1,10 @@
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
-import { Layout } from '@/widgets/Layout';
-import { HomePage } from '@/pages/HomePage';
-import { ServicesPage } from '@/pages/ServicesPage';
-import { AboutPage } from '@/pages/AboutPage';
-import { ContactPage } from '@/pages/ContactPage';
-import { NotFoundPage } from '@/pages/NotFoundPage';
+import Layout from '@/widgets/Layout/Layout';
+import HomePage from '@/pages/HomePage/HomePage';
+import ServicesPage from '@/pages/ServicesPage/ServicesPage';
+import AboutPage from '@/pages/AboutPage/AboutPage';
+import ContactPage from '@/pages/ContactPage/ContactPage';
+import NotFoundPage from '@/pages/NotFoundPage/NotFoundPage';
 
 const router = createBrowserRouter([
   {

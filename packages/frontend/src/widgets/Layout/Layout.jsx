@@ -1,6 +1,6 @@
 import { Outlet } from 'react-router-dom';
-import { SiteHeader } from '../SiteHeader';
-import { SiteFooter } from '../SiteFooter'; // Make sure this is imported
+import SiteHeader from '../SiteHeader/SiteHeader';
+import SiteFooter from '../SiteFooter/SiteFooter';
 import styles from './Layout.module.css';
 
 const Layout = () => {
@@ -10,7 +10,7 @@ const Layout = () => {
       <main className={styles.mainContent}>
         <Outlet />
       </main>
-      <SiteFooter /> {/* This is no longer commented out */}
+      <SiteFooter />
     </div>
   );
 };
