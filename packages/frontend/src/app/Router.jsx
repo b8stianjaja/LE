@@ -2,11 +2,11 @@
 
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import { Layout } from '@/widgets/Layout/Layout';
-import { HomePage } from '@/pages/HomePage/HomePage'; // FIXED: Changed to named import
-import { ServicesPage } from '@/pages/ServicesPage/ServicesPage';
+import { HomePage } from '@/pages/HomePage/HomePage';
+import ServicesPage from '@/pages/ServicesPage/ServicesPage'; // FIXED: Was using curly braces {} incorrectly
 import AboutPage from '@/pages/AboutPage/AboutPage';
 import ContactPage from '@/pages/ContactPage/ContactPage';
-import { NotFoundPage } from '@/pages/NotFoundPage/NotFoundPage';
+import NotFoundPage from '@/pages/NotFoundPage/NotFoundPage'; // FIXED: Was using curly braces {} incorrectly
 
 const router = createBrowserRouter([
   {
