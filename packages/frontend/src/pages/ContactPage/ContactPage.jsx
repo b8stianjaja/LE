@@ -3,17 +3,17 @@ import styles from './ContactPage.module.css';
 import { Container } from '../../shared/ui/Container/Container';
 
 // ACTION REQUIRED:
-// 1. Replace the `your-formspree-endpoint` with your actual Formspree endpoint URL.
-// 2. Replace the placeholder email and WhatsApp number with your actual contact details.
+// The form will not work until you replace the placeholder endpoint below.
+// 1. Go to https://formspree.io/ and create a new form.
+// 2. Replace 'your-formspree-endpoint' with your actual Formspree endpoint URL.
 
-export const ContactPage = () => {
+const ContactPage = () => {
   return (
     <div className={styles.contactPage}>
       <Container>
         <h1 className={styles.pageTitle}>Hablemos</h1>
         <p className={styles.pageSubtitle}>
-          Estoy aquí para ayudarte. Completa el formulario o contáctame directamente y
-          comencemos a dar forma a tu proyecto.
+          ¿Tienes preguntas o estás lista/o para agendar una sesión? Completa el formulario o contáctame directamente. Estoy aquí para ayudarte.
         </p>
 
         <div className={styles.contactWrapper}>
@@ -29,7 +29,7 @@ export const ContactPage = () => {
               </div>
               <div className={styles.formGroup}>
                 <label htmlFor="message">Tu Mensaje</label>
-                <textarea id="message" name="message" rows="5" required></textarea>
+                <textarea id="message" name="message" rows="5" placeholder="Cuéntame un poco sobre lo que buscas..." required></textarea>
               </div>
               <button type="submit" className={`btn ${styles.submitButton}`}>
                 Enviar Mensaje
@@ -41,25 +41,27 @@ export const ContactPage = () => {
             <div className={styles.infoBlock}>
               <h3>Correo Electrónico</h3>
               <p>
-                <a href="mailto:hola@tuemail.com">hola@tuemail.com</a>
+                {/* ACTION REQUIRED: Replace with your email */}
+                <a href="mailto:contacto@liberacionenergetica.cl">contacto@liberacionenergetica.cl</a>
               </p>
             </div>
             <div className={styles.infoBlock}>
               <h3>WhatsApp</h3>
               <p>
+                {/* ACTION REQUIRED: Replace with your WhatsApp number */}
                 <a
-                  href="https://wa.me/56900000000"
+                  href="https://wa.me/56912345678"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  +56 9 0000 0000
+                  +56 9 1234 5678
                 </a>
               </p>
             </div>
-            <div className={styles.infoBlock}>
-              <h3>Horario</h3>
-              <p>Lunes a Viernes</p>
-              <p>9:00 AM - 6:00 PM</p>
+             <div className={styles.infoBlock}>
+              <h3>Ubicación</h3>
+              <p>Llay-Llay, Valparaíso</p>
+              <p>Atención presencial y a distancia.</p>
             </div>
           </div>
         </div>
@@ -67,3 +69,5 @@ export const ContactPage = () => {
     </div>
   );
 };
+
+export default ContactPage;

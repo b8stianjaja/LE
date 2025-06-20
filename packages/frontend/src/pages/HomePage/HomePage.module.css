@@ -4,7 +4,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  min-height: 80vh;
+  min-height: 90vh;
   padding: 2rem;
   color: white;
   text-align: center;
@@ -13,11 +13,8 @@
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
-  /* ACTION REQUIRED:
-    Replace this placeholder Unsplash URL with a link to your
-    chosen high-quality, relevant background image.
-  */
-  background-image: url('https://images.unsplash.com/photo-1519681393784-d120267933ba?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80');
+  /* ACTION REQUIRED: Replaced placeholder URL */
+  background-image: url('https://images.unsplash.com/photo-1544164559-99f4d2579b39?ixlib=rb-4.0.3&auto=format&fit=crop&w=1740&q=80');
 }
 
 .hero::before {
@@ -27,7 +24,7 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: rgba(0, 0, 0, 0.5); /* Overlay */
+  background-color: rgba(0, 0, 0, 0.45); /* Overlay */
   z-index: 1;
 }
 
@@ -55,6 +52,17 @@
 /* Specific overrides for the hero button, which uses the global .btn class */
 .ctaButton {
   padding: 1rem 2.5rem; /* Larger padding for hero button */
+  font-size: 1.1rem;
+}
+
+/* Intro Section */
+.introSection {
+  background-color: var(--background-color);
+  padding: var(--section-padding);
+}
+
+.introContent {
+  text-align: center;
 }
 
 /* Services Preview Section */
@@ -74,10 +82,11 @@
 .sectionSubtitle {
   text-align: center;
   font-size: 1.1rem;
-  max-width: 600px;
+  max-width: 700px;
   margin: 0 auto 4rem auto;
   color: var(--text-color);
   font-family: var(--secondary-font);
+  line-height: 1.8;
 }
 
 .servicesGrid {
@@ -93,7 +102,9 @@
   box-shadow: var(--shadow-medium);
   text-align: center;
   transition: transform var(--transition-speed), box-shadow var(--transition-speed);
-  border-top: 4px solid var(--accent-color); /* Added accent border */
+  border-top: 4px solid var(--accent-color);
+  display: flex;
+  flex-direction: column;
 }
 
 .serviceCard:hover {
@@ -112,6 +123,20 @@
   font-family: var(--secondary-font);
   color: var(--text-color);
   line-height: 1.6;
+  flex-grow: 1;
+  margin-bottom: 1.5rem;
+}
+
+.serviceLink {
+  font-family: var(--secondary-font);
+  color: var(--accent-color);
+  text-decoration: none;
+  font-weight: bold;
+  transition: color var(--transition-speed);
+}
+
+.serviceLink:hover {
+  color: var(--accent-color-dark);
 }
 
 /* Testimonials Section */
@@ -145,6 +170,7 @@
   font-style: italic;
   margin-bottom: 1.5rem;
   line-height: 1.7;
+  font-size: 1.1rem;
 }
 
 .testimonialAuthor {
@@ -155,8 +181,15 @@
   display: block;
 }
 
+/* Final CTA Section */
+.finalCta {
+    padding: var(--section-padding);
+    background-color: #fdfcf9;
+    text-align: center;
+}
+
 @media (max-width: 768px) {
   .heroTitle {
-    font-size: 2.5rem;
+    font-size: 2.8rem;
   }
 }

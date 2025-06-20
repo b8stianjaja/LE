@@ -2,11 +2,13 @@
 
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import { Layout } from '@/widgets/Layout/Layout';
-import { HomePage } from '@/pages/HomePage/HomePage';
-import ServicesPage from '@/pages/ServicesPage/ServicesPage'; // FIXED: Was using curly braces {} incorrectly
+
+// Consistently import all pages as default exports
+import HomePage from '@/pages/HomePage/HomePage';
+import ServicesPage from '@/pages/ServicesPage/ServicesPage';
 import AboutPage from '@/pages/AboutPage/AboutPage';
 import ContactPage from '@/pages/ContactPage/ContactPage';
-import NotFoundPage from '@/pages/NotFoundPage/NotFoundPage'; // FIXED: Was using curly braces {} incorrectly
+import NotFoundPage from '@/pages/NotFoundPage/NotFoundPage';
 
 const router = createBrowserRouter([
   {
@@ -39,4 +41,4 @@ const router = createBrowserRouter([
 
 export const AppRouter = () => {
   return <RouterProvider router={router} />;
-};
+};  

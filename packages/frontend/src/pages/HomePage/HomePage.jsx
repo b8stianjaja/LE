@@ -4,41 +4,41 @@ import styles from './HomePage.module.css';
 import Container from '../../shared/ui/Container/Container';
 import useIntersectionObserver from '../../shared/hooks/useIntersectionObserver';
 
-// ACTION REQUIRED:
-// The content for this page is hardcoded. You should replace it with content
-// coming from a CMS or a dedicated content file.
+const serviceCards = [
+  {
+    title: 'Terapias Energéticas',
+    description: 'Experimenta una profunda relajación y equilibrio con Reiki, Sanación con Cristales y otras técnicas que restauran tu flujo de energía vital.',
+    link: '/servicios'
+  },
+  {
+    title: 'Lecturas de Tarot Evolutivo',
+    description: 'Obtén claridad y guía en tu camino de vida. Una herramienta para el autoconocimiento y el empoderamiento personal.',
+    link: '/servicios'
+  },
+  {
+    title: 'Limpieza de Espacios',
+    description: 'Armoniza tu hogar o lugar de trabajo, eliminando energías densas y creando un ambiente de paz y positividad.',
+    link: '/servicios'
+  },
+];
 
-export const HomePage = () => {
-  // Hooks for observing elements and adding animations
+const testimonials = [
+  {
+    text: 'La sesión de Reiki me dejó en un estado de paz que no sentía hace años. Ana tiene una energía increíble y un don para sanar.',
+    author: 'Javiera M., Llay-Llay',
+  },
+  {
+    text: 'Después de la limpieza energética en mi casa, el ambiente cambió por completo. Se siente más ligero, más feliz. ¡100% recomendado!',
+    author: 'Carlos G., Cliente Residencial',
+  },
+];
+
+const HomePage = () => {
   const [heroRef, isHeroVisible] = useIntersectionObserver({ threshold: 0.1 });
+  const [introRef, isIntroVisible] = useIntersectionObserver({ threshold: 0.1 });
   const [servicesRef, areServicesVisible] = useIntersectionObserver({ threshold: 0.1 });
   const [testimonialsRef, areTestimonialsVisible] = useIntersectionObserver({ threshold: 0.1 });
-
-  const serviceCards = [
-    {
-      title: 'Consultoría de Diseño',
-      description: 'Análisis y optimización de tus espacios para mejorar el bienestar y la productividad.',
-    },
-    {
-      title: 'Hogar y Residencial',
-      description: 'Creación de ambientes que promueven la calma, la conexión y el descanso en tu hogar.',
-    },
-    {
-      title: 'Oficinas y Espacios de Trabajo',
-      description: 'Diseño de entornos laborales que fomentan la colaboración, la concentración y la creatividad.',
-    },
-  ];
-
-  const testimonials = [
-    {
-      text: 'El cambio en mi oficina fue increíble. Ahora siento que mi equipo está más motivado y el ambiente es mucho más positivo. ¡Totalmente recomendado!',
-      author: 'Ana P., Directora de Marketing',
-    },
-    {
-      text: 'Nunca pensé que pequeños cambios en mi casa pudieran tener un impacto tan grande en mi estado de ánimo. Estoy durmiendo mejor y me siento más en paz.',
-      author: 'Carlos G., Cliente Residencial',
-    },
-  ];
+  const [ctaRef, isCtaVisible] = useIntersectionObserver({ threshold: 0.1 });
 
   return (
     <>
@@ -46,44 +46,48 @@ export const HomePage = () => {
       <section className={styles.hero}>
         <div
           ref={heroRef}
-          className={`${styles.heroContent} ${
-            isHeroVisible ? 'fade-in-section is-visible' : 'fade-in-section'
-          }`}
+          className={`${styles.heroContent} ${isHeroVisible ? 'fade-in-section is-visible' : 'fade-in-section'}`}
         >
-          <h1 className={styles.heroTitle}>Transformando Espacios, Creando Bienestar</h1>
+          <h1 className={styles.heroTitle}>Encuentra tu Equilibrio Interior</h1>
           <p className={styles.heroSubtitle}>
-            Descubre cómo la psicología ambiental puede mejorar tu vida y tu entorno.
+            Un santuario para la sanación energética y el bienestar holístico en el corazón de Llay-Llay.
           </p>
-          <Link to="/contacto" className={`btn ${styles.ctaButton}`}>
-            Comienza tu Transformación
+          <Link to="/servicios" className={`btn ${styles.ctaButton}`}>
+            Explora las Terapias
           </Link>
         </div>
+      </section>
+
+      {/* Intro Section */}
+      <section ref={introRef} className={styles.introSection}>
+        <Container>
+          <div className={`${styles.introContent} ${isIntroVisible ? 'fade-in-section is-visible' : 'fade-in-section'}`}>
+            <h2 className={styles.sectionTitle}>Un Espacio para Reconectar Contigo</h2>
+            <p className={styles.sectionSubtitle}>
+              En nuestro ajetreado mundo, es fácil perder la conexión con nuestra esencia. Las terapias holísticas ofrecen un camino de regreso a tu centro, liberando el estrés, sanando bloqueos emocionales y restaurando tu vitalidad natural. Aquí encontrarás un refugio seguro para iniciar tu viaje de transformación.
+            </p>
+          </div>
+        </Container>
       </section>
 
       {/* Services Preview Section */}
       <section ref={servicesRef} className={styles.servicesPreview}>
         <Container>
-          <div
-            className={
-              areServicesVisible ? 'fade-in-section is-visible' : 'fade-in-section'
-            }
-          >
-            <h2 className={styles.sectionTitle}>Mis Servicios</h2>
+          <div className={areServicesVisible ? 'fade-in-section is-visible' : 'fade-in-section'}>
+            <h2 className={styles.sectionTitle}>Terapias para el Alma</h2>
             <p className={styles.sectionSubtitle}>
-              Ofrezco soluciones personalizadas para adaptar tus espacios a tus necesidades,
-              mejorando tu calidad de vida a través del diseño consciente.
+              Cada terapia es una invitación a cuidar de ti, a escuchar tu cuerpo y a nutrir tu espíritu de una manera integral.
             </p>
           </div>
           <div className={styles.servicesGrid}>
             {serviceCards.map((card, index) => (
               <div
                 key={card.title}
-                className={`${styles.serviceCard} ${
-                  areServicesVisible ? 'fade-in-section is-visible' : 'fade-in-section'
-                } delay-${index * 200}`}
+                className={`${styles.serviceCard} ${areServicesVisible ? 'fade-in-section is-visible' : 'fade-in-section'} delay-${index * 200}`}
               >
                 <h3 className={styles.serviceTitle}>{card.title}</h3>
                 <p className={styles.serviceDescription}>{card.description}</p>
+                 <Link to={card.link} className={styles.serviceLink}>Saber más</Link>
               </div>
             ))}
           </div>
@@ -93,27 +97,17 @@ export const HomePage = () => {
       {/* Testimonials Section */}
       <section ref={testimonialsRef} className={styles.testimonials}>
         <Container>
-          <div
-            className={
-              areTestimonialsVisible
-                ? 'fade-in-section is-visible'
-                : 'fade-in-section'
-            }
-          >
-            <h2 className={styles.sectionTitle}>Lo que dicen mis clientes</h2>
+          <div className={areTestimonialsVisible ? 'fade-in-section is-visible' : 'fade-in-section'}>
+            <h2 className={styles.sectionTitle}>Voces de Bienestar</h2>
             <p className={styles.sectionSubtitle}>
-              Historias reales de transformaciones que han generado un impacto positivo.
+              Historias reales de quienes han experimentado la transformación.
             </p>
           </div>
           <div className={styles.testimonialsGrid}>
             {testimonials.map((testimonial, index) => (
               <div
                 key={testimonial.author}
-                className={`${styles.testimonialCard} ${
-                  areTestimonialsVisible
-                    ? 'fade-in-section is-visible'
-                    : 'fade-in-section'
-                } delay-${index * 200}`}
+                className={`${styles.testimonialCard} ${areTestimonialsVisible ? 'fade-in-section is-visible' : 'fade-in-section'} delay-${index * 200}`}
               >
                 <p className={styles.testimonialText}>"{testimonial.text}"</p>
                 <span className={styles.testimonialAuthor}>- {testimonial.author}</span>
@@ -122,6 +116,21 @@ export const HomePage = () => {
           </div>
         </Container>
       </section>
+
+      {/* Final CTA Section */}
+      <section ref={ctaRef} className={styles.finalCta}>
+         <Container>
+            <div className={`${styles.finalCtaContent} ${isCtaVisible ? 'fade-in-section is-visible' : 'fade-in-section'}`}>
+               <h2 className={styles.sectionTitle}>¿Lista para dar el primer paso?</h2>
+               <p className={styles.sectionSubtitle}>Tu viaje hacia el bienestar y la paz interior comienza con una simple decisión.</p>
+                <Link to="/contacto" className={`btn ${styles.ctaButton}`}>
+                  Agenda tu Sesión
+                </Link>
+            </div>
+         </Container>
+      </section>
     </>
   );
 };
+
+export default HomePage;
