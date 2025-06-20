@@ -2,7 +2,8 @@
 import { Link } from 'react-router-dom';
 import styles from './HomePage.module.css';
 import Container from '../../shared/ui/Container/Container';
-import useIntersectionObserver from '../../shared/hooks/useIntersectionObserver';
+// FIX: Changed to { useIntersectionObserver } for named import
+import { useIntersectionObserver } from '../../shared/hooks/useIntersectionObserver';
 
 const serviceCards = [
   {

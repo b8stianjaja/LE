@@ -1,6 +1,7 @@
 // src/pages/ContactPage/ContactPage.jsx
 import styles from './ContactPage.module.css';
-import { Container } from '../../shared/ui/Container/Container';
+// FIX: Changed from { Container } to Container for default import
+import Container from '../../shared/ui/Container/Container';
 
 // ACTION REQUIRED:
 // The form will not work until you replace the placeholder endpoint below.
