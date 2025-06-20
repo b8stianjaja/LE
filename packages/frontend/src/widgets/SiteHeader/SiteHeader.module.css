@@ -6,7 +6,7 @@
   width: 100%;
   z-index: 1000;
   padding: 1.5rem 0;
-  transition: background-color 0.4s ease, padding 0.4s ease, box-shadow 0.4s ease;
+  transition: background-color var(--transition-speed), padding var(--transition-speed), box-shadow var(--transition-speed);
 }
 
 .header.sticky {
@@ -26,7 +26,12 @@
   font-weight: 700;
   color: white;
   text-decoration: none;
-  font-family: var(--primary-font); /* CORRECTED VARIABLE */
+  font-family: var(--primary-font);
+  transition: transform var(--transition-speed);
+}
+
+.logo:hover {
+  transform: scale(1.05);
 }
 
 .navLinks {
@@ -39,9 +44,9 @@
   color: white;
   font-size: 1rem;
   font-weight: 500;
-  font-family: var(--secondary-font); /* CORRECTED VARIABLE */
+  font-family: var(--secondary-font);
   position: relative;
-  transition: color 0.3s ease;
+  transition: color var(--transition-speed);
 }
 
 .navLinks a::after {
@@ -52,7 +57,7 @@
   width: 0;
   height: 2px;
   background-color: var(--accent-color);
-  transition: width 0.3s ease;
+  transition: width var(--transition-speed);
 }
 
 .navLinks a:hover,
@@ -114,7 +119,7 @@
   color: white;
   font-size: 2rem;
   text-decoration: none;
-  font-family: var(--primary-font); /* CORRECTED VARIABLE */
+  font-family: var(--primary-font);
 }
 
 .mobileNav a.active {

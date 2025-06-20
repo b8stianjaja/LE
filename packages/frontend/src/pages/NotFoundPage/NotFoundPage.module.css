@@ -6,7 +6,7 @@
   justify-content: center;
   padding: 4rem 1rem;
   text-align: center;
-  min-height: 60vh;
+  min-height: 70vh; /* Increased height */
 }
 
 .title {
@@ -27,21 +27,9 @@
 .message {
   color: var(--text-color);
   max-width: 400px;
-  margin-bottom: 2rem;
+  margin-bottom: 2.5rem; /* Increased margin */
 }
 
+/* This class is just a handle, all styling comes from the global .btn class */
 .homeLink {
-  font-family: var(--secondary-font);
-  background-color: var(--accent-color);
-  color: white;
-  padding: 12px 30px;
-  border-radius: 50px;
-  text-decoration: none;
-  font-weight: 700;
-  transition: background-color 0.3s ease, transform 0.3s ease;
-}
-
-.homeLink:hover {
-  background-color: #d68f41;
-  transform: translateY(-2px);
 }

@@ -1,6 +1,6 @@
 /* src/pages/AboutPage/AboutPage.module.css */
 .aboutPage {
-  padding: 4rem 0;
+  padding: var(--section-padding);
 }
 
 .contentGrid {
@@ -28,7 +28,7 @@
   border-radius: 50%;
   object-fit: cover;
   border: 7px solid var(--surface-color);
-  box-shadow: 0 4px 25px rgba(0,0,0,0.1);
+  box-shadow: var(--shadow-medium); /* Use the new shadow variable */
 }
 
 .textContainer p {

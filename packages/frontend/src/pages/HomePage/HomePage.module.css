@@ -13,8 +13,8 @@
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
-  /* ACTION REQUIRED: 
-    Replace this placeholder Unsplash URL with a link to your 
+  /* ACTION REQUIRED:
+    Replace this placeholder Unsplash URL with a link to your
     chosen high-quality, relevant background image.
   */
   background-image: url('https://images.unsplash.com/photo-1519681393784-d120267933ba?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80');
@@ -48,32 +48,19 @@
 .heroSubtitle {
   font-family: var(--secondary-font);
   font-size: 1.25rem;
-  margin-bottom: 2rem;
+  margin-bottom: 2.5rem; /* Increased margin */
   font-weight: 300;
 }
 
+/* Specific overrides for the hero button, which uses the global .btn class */
 .ctaButton {
-  font-family: var(--secondary-font);
-  background-color: var(--accent-color);
-  color: white; /* FIXED: Was using an undefined variable --text-dark */
-  padding: 1rem 2.5rem;
-  border-radius: 50px;
-  text-decoration: none;
-  font-weight: 700;
-  font-size: 1rem;
-  transition: transform 0.3s ease, background-color 0.3s ease;
-  display: inline-block;
-}
-
-.ctaButton:hover {
-  background-color: #f0e6d2;
-  transform: translateY(-3px);
+  padding: 1rem 2.5rem; /* Larger padding for hero button */
 }
 
 /* Services Preview Section */
 .servicesPreview {
-  padding: 6rem 0;
-  background-color: #fdfcf9;
+  padding: var(--section-padding);
+  background-color: #fdfcf9; /* A slightly warmer off-white */
 }
 
 .sectionTitle {
@@ -100,17 +87,18 @@
 }
 
 .serviceCard {
-  background-color: white;
+  background-color: var(--surface-color);
   padding: 2.5rem;
-  border-radius: 15px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  border-radius: var(--border-radius-medium);
+  box-shadow: var(--shadow-medium);
   text-align: center;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: transform var(--transition-speed), box-shadow var(--transition-speed);
+  border-top: 4px solid var(--accent-color); /* Added accent border */
 }
 
 .serviceCard:hover {
   transform: translateY(-10px);
-  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12); /* Slightly stronger shadow on hover */
 }
 
 .serviceTitle {
@@ -128,7 +116,7 @@
 
 /* Testimonials Section */
 .testimonials {
-  padding: 6rem 0;
+  padding: var(--section-padding);
   background-color: var(--primary-color);
   color: white;
 }
@@ -148,7 +136,7 @@
 .testimonialCard {
   background-color: rgba(255, 255, 255, 0.05);
   padding: 2rem;
-  border-radius: 15px;
+  border-radius: var(--border-radius-medium);
   border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
@@ -164,7 +152,7 @@
   font-weight: 700;
   text-align: right;
   color: var(--accent-color);
-  display: block; /* Ensures it takes up the full width for text-align */
+  display: block;
 }
 
 @media (max-width: 768px) {

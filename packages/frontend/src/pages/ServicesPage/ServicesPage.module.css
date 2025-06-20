@@ -1,6 +1,6 @@
 /* src/pages/ServicesPage/ServicesPage.module.css */
 .servicesPage {
-  padding: 4rem 0;
+  padding: var(--section-padding);
 }
 
 .pageTitle {
@@ -21,17 +21,23 @@
 .servicesGrid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-  gap: 2rem;
+  gap: 2.5rem; /* Increased gap */
 }
 
 .serviceCard {
   background-color: var(--surface-color);
-  border-radius: 10px;
+  border-radius: var(--border-radius-medium);
   padding: 2.5rem 2rem;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+  box-shadow: var(--shadow-medium);
   display: flex;
   flex-direction: column;
   border-top: 5px solid var(--accent-color);
+  transition: transform var(--transition-speed), box-shadow var(--transition-speed);
+}
+
+.serviceCard:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
 }
 
 .serviceTitle {

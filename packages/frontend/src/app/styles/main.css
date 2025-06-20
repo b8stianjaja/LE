@@ -1,3 +1,5 @@
+/* src/app/styles/main.css */
+
 /* A simple CSS reset */
 *,
 *::before,
@@ -9,24 +11,33 @@
 
 /* Define root variables for a calming, professional color palette and fonts */
 :root {
+  /* Typography */
   --primary-font: 'Lora', serif;
   --secondary-font: 'Montserrat', sans-serif;
 
-  /* New Color Palette */
-  --primary-color: #8E9B8D;   /* A soft, earthy green for accents */
-  --secondary-color: #B2C2B8; /* A lighter, complementary green */
-  --text-color: #37474F;      /* A dark, soft slate for body text */
-  --heading-color: #263238;   /* A deeper slate for headings */
-  --background-color: #F5F5F5; /* A gentle off-white for the background */
-  --surface-color: #FFFFFF;    /* Pure white for cards or elevated surfaces */
-  --accent-color: #E59F51;      /* A warm, inviting accent color */
+  /* Color Palette */
+  --primary-color: #8E9B8D;      /* A soft, earthy green for accents */
+  --secondary-color: #B2C2B8;    /* A lighter, complementary green */
+  --text-color: #37474F;         /* A dark, soft slate for body text */
+  --heading-color: #263238;      /* A deeper slate for headings */
+  --background-color: #F5F5F5;    /* A gentle off-white for the background */
+  --surface-color: #FFFFFF;       /* Pure white for cards or elevated surfaces */
+  --accent-color: #E59F51;         /* A warm, inviting accent color */
+  --accent-color-dark: #d68f41;    /* A darker accent for hover states */
+
+  /* Design Tokens */
+  --section-padding: 5rem 0;
+  --border-radius-medium: 15px;
+  --border-radius-pill: 50px;
+  --shadow-medium: 0 10px 30px rgba(0, 0, 0, 0.08);
+  --transition-speed: 0.3s ease;
 }
 
 body {
   font-family: var(--secondary-font);
   color: var(--text-color);
   background-color: var(--background-color);
-  line-height: 1.7; /* Increased line-height for better readability */
+  line-height: 1.7;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -38,12 +49,34 @@ h1, h2, h3, h4, h5, h6 {
 a {
   text-decoration: none;
   color: var(--primary-color);
-  transition: color 0.3s ease;
+  transition: color var(--transition-speed);
 }
 
 a:hover, a:focus {
   color: var(--heading-color);
 }
+
+/* Generic Button Style */
+.btn {
+  display: inline-block;
+  font-family: var(--secondary-font);
+  background-color: var(--accent-color);
+  color: white;
+  padding: 0.8rem 2.2rem;
+  border-radius: var(--border-radius-pill);
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 1rem;
+  border: none;
+  cursor: pointer;
+  transition: background-color var(--transition-speed), transform var(--transition-speed);
+}
+
+.btn:hover {
+  background-color: var(--accent-color-dark);
+  transform: translateY(-3px);
+}
+
 
 /* Animation Helper Classes */
 .fade-in-section {
@@ -57,7 +90,6 @@ a:hover, a:focus {
   transform: translateY(0);
 }
 
-/* You can create delayed animations easily */
 .delay-200 {
   transition-delay: 200ms;
 }
