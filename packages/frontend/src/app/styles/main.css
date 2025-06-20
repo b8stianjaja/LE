@@ -9,27 +9,27 @@
   padding: 0;
 }
 
-/* Define root variables for a calming, professional color palette and fonts */
+/* Define root variables for a magical, ethereal color palette and fonts */
 :root {
   /* Typography */
   --primary-font: 'Lora', serif;
   --secondary-font: 'Montserrat', sans-serif;
 
-  /* Color Palette */
-  --primary-color: #8E9B8D;      /* A soft, earthy green for accents */
-  --secondary-color: #B2C2B8;    /* A lighter, complementary green */
-  --text-color: #37474F;         /* A dark, soft slate for body text */
-  --heading-color: #263238;      /* A deeper slate for headings */
-  --background-color: #F5F5F5;    /* A gentle off-white for the background */
-  --surface-color: #FFFFFF;       /* Pure white for cards or elevated surfaces */
-  --accent-color: #E59F51;         /* A warm, inviting accent color */
-  --accent-color-dark: #d68f41;    /* A darker accent for hover states */
+  /* Magical Color Palette */
+  --primary-color: #A076F9;      /* A mystical, medium purple for key elements */
+  --secondary-color: #D7BDE2;    /* A soft, light lavender for complementary accents */
+  --text-color: #EAE6F9;         /* A very light, soft lavender for body text on dark backgrounds */
+  --heading-color: #FFFFFF;      /* Pure white for prominent headings */
+  --background-color: #1A1A2E;    /* A deep, dark cosmic blue for the background */
+  --surface-color: #2C2C44;       /* A slightly lighter dark blue/purple for cards */
+  --accent-color: #F7C873;         /* A warm, magical gold for buttons and highlights */
+  --accent-color-dark: #E6B45A;    /* A darker gold for hover states */
 
   /* Design Tokens */
   --section-padding: 5rem 0;
   --border-radius-medium: 15px;
   --border-radius-pill: 50px;
-  --shadow-medium: 0 10px 30px rgba(0, 0, 0, 0.08);
+  --shadow-medium: 0 10px 30px rgba(0, 0, 0, 0.2); /* Slightly darker shadow for dark bg */
   --transition-speed: 0.3s ease;
 }
 
@@ -58,7 +58,7 @@ a {
 }
 
 a:hover, a:focus {
-  color: var(--heading-color);
+  color: var(--secondary-color);
 }
 
 /* Generic Button Style */
@@ -66,7 +66,7 @@ a:hover, a:focus {
   display: inline-block;
   font-family: var(--secondary-font);
   background-color: var(--accent-color);
-  color: white;
+  color: #1A1A2E; /* Dark text on gold button for contrast */
   padding: 0.8rem 2.2rem;
   border-radius: var(--border-radius-pill);
   text-decoration: none;
@@ -80,6 +80,7 @@ a:hover, a:focus {
 .btn:hover {
   background-color: var(--accent-color-dark);
   transform: translateY(-3px);
+  color: #1A1A2E;
 }
 
 

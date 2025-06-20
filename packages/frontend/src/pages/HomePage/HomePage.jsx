@@ -1,137 +1,84 @@
-// src/pages/HomePage/HomePage.jsx
-import { Link } from 'react-router-dom';
-import styles from './HomePage.module.css';
-import Container from '../../shared/ui/Container/Container';
-// FIX: Changed to { useIntersectionObserver } for named import
-import { useIntersectionObserver } from '../../shared/hooks/useIntersectionObserver';
+import { Link } from 'react-router-dom'
+import { Container } from '@/shared/ui/Container'
+import { useIntersectionObserver } from '@/shared/hooks/useIntersectionObserver'
+import styles from './HomePage.module.css'
 
-const serviceCards = [
-  {
-    title: 'Terapias Energéticas',
-    description: 'Experimenta una profunda relajación y equilibrio con Reiki, Sanación con Cristales y otras técnicas que restauran tu flujo de energía vital.',
-    link: '/servicios'
-  },
-  {
-    title: 'Lecturas de Tarot Evolutivo',
-    description: 'Obtén claridad y guía en tu camino de vida. Una herramienta para el autoconocimiento y el empoderamiento personal.',
-    link: '/servicios'
-  },
-  {
-    title: 'Limpieza de Espacios',
-    description: 'Armoniza tu hogar o lugar de trabajo, eliminando energías densas y creando un ambiente de paz y positividad.',
-    link: '/servicios'
-  },
-];
+// Assets
+import heroImage from '@/assets/images/hero-image.jpg'
+import featureImage from '@/assets/images/feature-image.jpg'
+import testimonialAvatar from '@/assets/images/testimonial-avatar.jpg'
 
-const testimonials = [
-  {
-    text: 'La sesión de Reiki me dejó en un estado de paz que no sentía hace años. Ana tiene una energía increíble y un don para sanar.',
-    author: 'Javiera M., Llay-Llay',
-  },
-  {
-    text: 'Después de la limpieza energética en mi casa, el ambiente cambió por completo. Se siente más ligero, más feliz. ¡100% recomendado!',
-    author: 'Carlos G., Cliente Residencial',
-  },
-];
-
-const HomePage = () => {
-  const [heroRef, isHeroVisible] = useIntersectionObserver({ threshold: 0.1 });
-  const [introRef, isIntroVisible] = useIntersectionObserver({ threshold: 0.1 });
-  const [servicesRef, areServicesVisible] = useIntersectionObserver({ threshold: 0.1 });
-  const [testimonialsRef, areTestimonialsVisible] = useIntersectionObserver({ threshold: 0.1 });
-  const [ctaRef, isCtaVisible] = useIntersectionObserver({ threshold: 0.1 });
+export function HomePage () {
+  useIntersectionObserver('.fade-in-section')
 
   return (
-    <>
+    <main className={styles.homePage}>
       {/* Hero Section */}
       <section className={styles.hero}>
-        <div
-          ref={heroRef}
-          className={`${styles.heroContent} ${isHeroVisible ? 'fade-in-section is-visible' : 'fade-in-section'}`}
-        >
-          <h1 className={styles.heroTitle}>Encuentra tu Equilibrio Interior</h1>
-          <p className={styles.heroSubtitle}>
-            Un santuario para la sanación energética y el bienestar holístico en el corazón de Llay-Llay.
-          </p>
-          <Link to="/servicios" className={`btn ${styles.ctaButton}`}>
-            Explora las Terapias
-          </Link>
-        </div>
-      </section>
-
-      {/* Intro Section */}
-      <section ref={introRef} className={styles.introSection}>
         <Container>
-          <div className={`${styles.introContent} ${isIntroVisible ? 'fade-in-section is-visible' : 'fade-in-section'}`}>
-            <h2 className={styles.sectionTitle}>Un Espacio para Reconectar Contigo</h2>
-            <p className={styles.sectionSubtitle}>
-              En nuestro ajetreado mundo, es fácil perder la conexión con nuestra esencia. Las terapias holísticas ofrecen un camino de regreso a tu centro, liberando el estrés, sanando bloqueos emocionales y restaurando tu vitalidad natural. Aquí encontrarás un refugio seguro para iniciar tu viaje de transformación.
-            </p>
-          </div>
-        </Container>
-      </section>
-
-      {/* Services Preview Section */}
-      <section ref={servicesRef} className={styles.servicesPreview}>
-        <Container>
-          <div className={areServicesVisible ? 'fade-in-section is-visible' : 'fade-in-section'}>
-            <h2 className={styles.sectionTitle}>Terapias para el Alma</h2>
-            <p className={styles.sectionSubtitle}>
-              Cada terapia es una invitación a cuidar de ti, a escuchar tu cuerpo y a nutrir tu espíritu de una manera integral.
-            </p>
-          </div>
-          <div className={styles.servicesGrid}>
-            {serviceCards.map((card, index) => (
-              <div
-                key={card.title}
-                className={`${styles.serviceCard} ${areServicesVisible ? 'fade-in-section is-visible' : 'fade-in-section'} delay-${index * 200}`}
-              >
-                <h3 className={styles.serviceTitle}>{card.title}</h3>
-                <p className={styles.serviceDescription}>{card.description}</p>
-                 <Link to={card.link} className={styles.serviceLink}>Saber más</Link>
-              </div>
-            ))}
-          </div>
-        </Container>
-      </section>
-
-      {/* Testimonials Section */}
-      <section ref={testimonialsRef} className={styles.testimonials}>
-        <Container>
-          <div className={areTestimonialsVisible ? 'fade-in-section is-visible' : 'fade-in-section'}>
-            <h2 className={styles.sectionTitle}>Voces de Bienestar</h2>
-            <p className={styles.sectionSubtitle}>
-              Historias reales de quienes han experimentado la transformación.
-            </p>
-          </div>
-          <div className={styles.testimonialsGrid}>
-            {testimonials.map((testimonial, index) => (
-              <div
-                key={testimonial.author}
-                className={`${styles.testimonialCard} ${areTestimonialsVisible ? 'fade-in-section is-visible' : 'fade-in-section'} delay-${index * 200}`}
-              >
-                <p className={styles.testimonialText}>"{testimonial.text}"</p>
-                <span className={styles.testimonialAuthor}>- {testimonial.author}</span>
-              </div>
-            ))}
-          </div>
-        </Container>
-      </section>
-
-      {/* Final CTA Section */}
-      <section ref={ctaRef} className={styles.finalCta}>
-         <Container>
-            <div className={`${styles.finalCtaContent} ${isCtaVisible ? 'fade-in-section is-visible' : 'fade-in-section'}`}>
-               <h2 className={styles.sectionTitle}>¿Lista para dar el primer paso?</h2>
-               <p className={styles.sectionSubtitle}>Tu viaje hacia el bienestar y la paz interior comienza con una simple decisión.</p>
-                <Link to="/contacto" className={`btn ${styles.ctaButton}`}>
-                  Agenda tu Sesión
-                </Link>
+          <div className={styles.heroContent}>
+            <div className={`${styles.heroText} fade-in-section`}>
+              <h1 className={styles.heroTitle}>
+                ¿Sientes que una carga invisible te impide avanzar?
+              </h1>
+              <p className={styles.heroSubtitle}>
+                Libérate de las ataduras emocionales y energéticas que no te pertenecen. Es hora de recuperar tu poder, tu paz interior y la alegría de ser tú mismo/a.
+              </p>
+              <Link to='/services' className='btn'>
+                Inicia Tu Transformación Aquí
+              </Link>
             </div>
-         </Container>
+            <div className={`${styles.heroImageContainer} fade-in-section delay-200`}>
+              <img src={heroImage} alt='Mujer meditando en paz, simbolizando la liberación energética' className={styles.heroImage} loading='lazy' />
+            </div>
+          </div>
+        </Container>
       </section>
-    </>
-  );
-};
 
-export default HomePage;
+      {/* Feature Section: What is Energy Release? */}
+      <section className={`${styles.featureSection} fade-in-section`}>
+        <Container className={styles.featureContainer}>
+          <div className={styles.featureImageContainer}>
+            <img src={featureImage} alt='Persona sintiendo una energía renovada' className={styles.featureImage} loading='lazy' />
+          </div>
+          <div className={styles.featureText}>
+            <h2>Imagina tu vida sin ese peso extra</h2>
+            <p>
+              La liberación energética es como soltar una mochila llena de piedras que has cargado durante años sin darte cuenta. No se trata de "arreglarte", porque no estás roto/a. Se trata de quitar lo que no es tuyo para que tu verdadera esencia pueda brillar.
+            </p>
+            <p>
+              A través de un método intuitivo y profundo, te guío para identificar y soltar bloqueos, patrones y emociones estancadas que limitan tu potencial.
+            </p>
+          </div>
+        </Container>
+      </section>
+
+      {/* Testimonial Section */}
+      <section className={`${styles.testimonialSection} fade-in-section`}>
+        <Container>
+          <h2 className={styles.testimonialTitle}>Historias de transformación que podrías protagonizar</h2>
+          <div className={styles.testimonialCard}>
+            <img src={testimonialAvatar} alt='Avatar de Ana C.' className={styles.testimonialAvatar} loading='lazy' />
+            <p className={styles.testimonialText}>
+              "Antes de comenzar este proceso, vivía con una ansiedad constante, un nudo en el estómago que no me dejaba en paz. Sentía que repetía los mismos errores una y otra vez. Después de la primera sesión, sentí un alivio que no puedo describir con palabras. Es como si me hubieran quitado un velo de los ojos. Hoy, me siento más ligera, más clara y, por primera vez en mucho tiempo, dueña de mi propio camino."
+            </p>
+            <cite className={styles.testimonialAuthor}>— Ana C., después de su proceso de liberación</cite>
+          </div>
+        </Container>
+      </section>
+
+      {/* Call to Action Section */}
+      <section className={`${styles.ctaSection} fade-in-section`}>
+        <Container>
+          <h2>¿Lista/o para sentir la diferencia?</h2>
+          <p>
+            Tu viaje hacia una vida más ligera y auténtica comienza con una simple decisión. No tienes que seguir cargando con lo que te duele.
+          </p>
+          <Link to='/contact' className='btn'>
+            Da el Primer Paso Hoy Mismo
+          </Link>
+        </Container>
+      </section>
+    </main>
+  )
+}

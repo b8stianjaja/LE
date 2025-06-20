@@ -1,63 +1,56 @@
-// src/pages/ServicesPage/ServicesPage.jsx
-import Container from '@/shared/ui/Container/Container';
-import styles from './ServicesPage.module.css';
-import { FaRegGem, FaRegStar, FaHandsHelping, FaBroom } from 'react-icons/fa';
+import { Link } from 'react-router-dom'
+import { Container } from '@/shared/ui/Container'
+import { useIntersectionObserver } from '@/shared/hooks/useIntersectionObserver'
+import styles from './ServicesPage.module.css'
 
-const services = [
-  {
-    icon: <FaHandsHelping size={40} />,
-    title: 'Terapia de Reiki',
-    description: 'Una suave pero poderosa técnica de sanación energética que promueve la relajación, reduce el estrés y la ansiedad a través del tacto suave, equilibrando los centros de energía (chakras) del cuerpo.',
-    price: '$30.000 CLP',
-    duration: '60 Minutos'
-  },
-  {
-    icon: <FaRegGem size={40} />,
-    title: 'Sanación con Cristales',
-    description: 'Utiliza las propiedades vibracionales de los cristales y piedras preciosas para limpiar, equilibrar y energizar el campo energético, ayudando a sanar a nivel físico, emocional y espiritual.',
-    price: '$35.000 CLP',
-    duration: '75 Minutos'
-  },
-  {
-    icon: <FaRegStar size={40} />,
-    title: 'Lectura de Tarot Evolutivo',
-    description: 'Una herramienta de autoconocimiento y guía que utiliza las cartas del tarot para explorar tu situación actual, desafíos y potenciales, enfocándose en tu crecimiento personal y espiritual.',
-    price: '$25.000 CLP',
-    duration: '45 Minutos'
-  },
-  {
-    icon: <FaBroom size={40} />,
-    title: 'Limpieza Energética (Personas y Espacios)',
-    description: 'Elimina las energías densas o negativas de tu campo áurico o de tu hogar/oficina, restaurando la armonía, la paz y la claridad. Ideal para después de períodos de estrés o enfermedad.',
-    price: 'Desde $40.000 CLP',
-    duration: 'Variable'
-  }
-];
+export function ServicesPage () {
+  useIntersectionObserver('.fade-in-section')
 
-const ServicesPage = () => {
+  const services = [
+    {
+      title: 'Sesión de Liberación y Claridad',
+      description: 'Un encuentro profundo para identificar y soltar el bloqueo principal que te está frenando en este momento de tu vida.',
+      idealFor: 'Sentimientos de estancamiento, confusión, ansiedad o si estás repitiendo patrones sin saber por qué.',
+      outcome: 'Saldrás con una sensación de ligereza, mayor claridad mental y los primeros pasos para recuperar tu centro.'
+    },
+    {
+      title: 'Proceso de Transformación Profunda (3 Sesiones)',
+      description: 'Un viaje comprometido para trabajar en las raíces de tus bloqueos. No solo aliviamos el síntoma, vamos al origen para una sanación sostenible.',
+      idealFor: 'Quienes buscan un cambio real y duradero, y están listos para comprometerse con su bienestar a largo plazo.',
+      outcome: 'Integrarás una nueva forma de relacionarte contigo mismo/a, con más autoconfianza, paz interior y herramientas para el futuro.'
+    },
+    {
+      title: 'Limpieza Energética de Espacios',
+      description: 'Tu entorno te afecta. Este servicio está diseñado para limpiar y armonizar la energía de tu hogar u oficina, creando un santuario de paz.',
+      idealFor: 'Mudanzas, después de períodos de conflicto, o si sientes tu espacio "pesado" o estancado.',
+      outcome: 'Un ambiente que te nutre, te apoya y se siente como un verdadero refugio de tranquilidad y buenas vibras.'
+    }
+  ]
+
   return (
-    <div className={styles.servicesPage}>
+    <main className={styles.servicesPage}>
       <Container>
-        <h1 className={styles.pageTitle}>Nuestros Servicios</h1>
-        <p className={styles.pageSubtitle}>
-          Cada servicio está diseñado con amor y dedicación para apoyarte en tu camino hacia el bienestar integral.
-        </p>
-        <div className={styles.servicesGrid}>
-          {services.map((service) => (
-            <div key={service.title} className={styles.serviceCard}>
-              <div className={styles.serviceIcon}>{service.icon}</div>
-              <h2 className={styles.serviceTitle}>{service.title}</h2>
-              <p className={styles.serviceDescription}>{service.description}</p>
-              <div className={styles.serviceMeta}>
-                <span className={styles.price}>{service.price}</span>
-                <span className={styles.duration}>{service.duration}</span>
+        <header className={`${styles.servicesHeader} fade-in-section`}>
+          <h1>Tu Caja de Herramientas para la Libertad Emocional</h1>
+          <p>Cada servicio está diseñado como una llave para abrir una puerta diferente en tu interior. Elige el que más resuene contigo hoy.</p>
+        </header>
+
+        <section className={styles.servicesGrid}>
+          {services.map((service, index) => (
+            <div key={index} className={`${styles.serviceCard} fade-in-section delay-${(index + 1) * 200}`}>
+              <div className={styles.serviceCardContent}>
+                <h3>{service.title}</h3>
+                <p>{service.description}</p>
+                <div className={styles.serviceDetails}>
+                  <p><strong>Ideal para ti si buscas:</strong> {service.idealFor}</p>
+                  <p><strong>El resultado que puedes esperar:</strong> {service.outcome}</p>
+                </div>
               </div>
+              <Link to='/contact' className='btn'>Quiero saber más</Link>
             </div>
           ))}
-        </div>
+        </section>
       </Container>
-    </div>
-  );
-};
-
-export default ServicesPage;
+    </main>
+  )
+}

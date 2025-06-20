@@ -1,40 +1,36 @@
-// src/pages/AboutPage/AboutPage.jsx
-import Container from '@/shared/ui/Container/Container';
-import styles from './AboutPage.module.css';
+import { Container } from '@/shared/ui/Container'
+import { useIntersectionObserver } from '@/shared/hooks/useIntersectionObserver'
+import styles from './AboutPage.module.css'
+import authorImage from '@/assets/images/author-image.jpg'
 
-const AboutPage = () => {
+export function AboutPage () {
+  useIntersectionObserver('.fade-in-section')
+
   return (
-    <div className={styles.aboutPage}>
+    <main className={styles.aboutPage}>
       <Container>
-        <div className={styles.contentGrid}>
-          <div className={styles.imageContainer}>
-            {/* ACTION REQUIRED: Replaced placeholder image */}
-            <img 
-              src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
-              alt="Retrato de Ana Luna, terapeuta holística" 
-              className={styles.profileImage}
-            />
+        <section className={`${styles.aboutSection} fade-in-section`}>
+          <div className={styles.aboutImageContainer}>
+            <img src={authorImage} alt='El guía del proceso de liberación energética' className={styles.aboutImage} />
           </div>
-          <div className={styles.textContainer}>
-            {/* ACTION REQUIRED: Replaced placeholder name and content */}
-            <h1 className={styles.nameTitle}>Ana Luna</h1>
-            <h2 className={styles.subtitle}>Tu Guía en el Viaje de Sanación Energética</h2>
-            <div className={styles.bio}>
-              <p>
-                Desde siempre, he sentido una profunda conexión con el mundo energético y una vocación innata por ayudar a otros a encontrar su equilibrio y bienestar. Mi camino me ha llevado a especializarme en diversas terapias holísticas que abordan al ser humano de una manera integral: mente, cuerpo y espíritu.
-              </p>
-              <p>
-                Mi misión es crear un espacio seguro y sagrado donde puedas liberar bloqueos, sanar heridas emocionales y reconectar con tu esencia más pura. Me especializo en <strong>Reiki Usui, Sanación con Cristales y Tarot Evolutivo</strong>, utilizando estas herramientas con profundo respeto y amor para facilitar un proceso de transformación personal.
-              </p>
-              <p>
-                Creo firmemente en el poder que reside dentro de cada uno de nosotros para sanar y crear la vida que deseamos. Te invito a dar el primer paso en este hermoso viaje de autodescubrimiento y liberación. Estoy aquí para acompañarte.
-              </p>
-            </div>
+          <div className={styles.aboutText}>
+            <h1>Mi camino hasta aquí no fue una línea recta</h1>
+            <p>
+              Durante años, sentí que algo dentro de mí no encajaba. Navegaba la vida con una sensación de vacío y cargando con pesos que no comprendía, pero que me agotaban profundamente. Era como vivir a medio gas, sabiendo que había algo más, pero sin saber cómo alcanzarlo.
+            </p>
+            <p>
+              Mi propia búsqueda de respuestas me llevó a la liberación energética. No fue una solución mágica, sino un profundo proceso de autodescubrimiento y sanación. Aprendí a soltar las cargas emocionales y las creencias limitantes que me saboteaban. Por primera vez, sentí la paz y la claridad que tanto anhelaba.
+            </p>
+            <h2>Mi Misión: Guiarte de Vuelta a Ti</h2>
+            <p>
+              Haber recorrido este camino me dio una misión clara: acompañar a otros en su propio viaje de liberación. Mi enfoque no es el de un sanador que "arregla", sino el de un guía que te entrega las herramientas y el espacio seguro para que tú mismo/a redescubras tu poder interior.
+            </p>
+            <p>
+              Entiendo tus dudas y tu escepticismo, porque yo también estuve ahí. Y por eso, mi compromiso es total: ofrecerte un acompañamiento honesto, compasivo y profundamente transformador. Juntos, podemos quitar las capas que ocultan tu verdadera esencia para que vivas con mayor libertad y propósito.
+            </p>
           </div>
-        </div>
+        </section>
       </Container>
-    </div>
-  );
-};
-
-export default AboutPage;
+    </main>
+  )
+}

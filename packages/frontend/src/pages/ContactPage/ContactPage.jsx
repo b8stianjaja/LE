@@ -1,74 +1,48 @@
-// src/pages/ContactPage/ContactPage.jsx
-import styles from './ContactPage.module.css';
-// FIX: Changed from { Container } to Container for default import
-import Container from '../../shared/ui/Container/Container';
+import { Container } from '@/shared/ui/Container'
+import { useIntersectionObserver } from '@/shared/hooks/useIntersectionObserver'
+import styles from './ContactPage.module.css'
 
-// ACTION REQUIRED:
-// The form will not work until you replace the placeholder endpoint below.
-// 1. Go to https://formspree.io/ and create a new form.
-// 2. Replace 'your-formspree-endpoint' with your actual Formspree endpoint URL.
+export function ContactPage () {
+  useIntersectionObserver('.fade-in-section')
 
-const ContactPage = () => {
+  const handleSubmit = (event) => {
+    event.preventDefault()
+    // Here you would handle the form submission,
+    // for example, by sending the data to a server.
+    alert('Gracias por tu mensaje. Te responderé a la brevedad.')
+    event.target.reset()
+  }
+
   return (
-    <div className={styles.contactPage}>
+    <main className={styles.contactPage}>
       <Container>
-        <h1 className={styles.pageTitle}>Hablemos</h1>
-        <p className={styles.pageSubtitle}>
-          ¿Tienes preguntas o estás lista/o para agendar una sesión? Completa el formulario o contáctame directamente. Estoy aquí para ayudarte.
-        </p>
-
-        <div className={styles.contactWrapper}>
-          <div className={styles.formWrapper}>
-            <form action="https://formspree.io/f/your-formspree-endpoint" method="POST">
-              <div className={styles.formGroup}>
-                <label htmlFor="name">Nombre Completo</label>
-                <input type="text" id="name" name="name" required />
-              </div>
-              <div className={styles.formGroup}>
-                <label htmlFor="email">Correo Electrónico</label>
-                <input type="email" id="email" name="email" required />
-              </div>
-              <div className={styles.formGroup}>
-                <label htmlFor="message">Tu Mensaje</label>
-                <textarea id="message" name="message" rows="5" placeholder="Cuéntame un poco sobre lo que buscas..." required></textarea>
-              </div>
-              <button type="submit" className={`btn ${styles.submitButton}`}>
-                Enviar Mensaje
-              </button>
-            </form>
+        <section className={`${styles.contactSection} fade-in-section`}>
+          <div className={styles.contactInfo}>
+            <h2>Tu viaje comienza con una conversación</h2>
+            <p>
+              Dar este paso puede generar dudas. Es normal. Estoy aquí para resolverlas sin ningún compromiso.
+            </p>
+            <p>
+              Escríbeme y cuéntame qué te trae por aquí. Tu mensaje es completamente confidencial y es el inicio de un camino hacia tu bienestar.
+            </p>
           </div>
-          <div className={styles.infoWrapper}>
-            <h2 className={styles.infoTitle}>Información de Contacto</h2>
-            <div className={styles.infoBlock}>
-              <h3>Correo Electrónico</h3>
-              <p>
-                {/* ACTION REQUIRED: Replace with your email */}
-                <a href="mailto:contacto@liberacionenergetica.cl">contacto@liberacionenergetica.cl</a>
-              </p>
+          <form className={styles.contactForm} onSubmit={handleSubmit}>
+            <div className={styles.formGroup}>
+              <label htmlFor='name'>Nombre</label>
+              <input type='text' id='name' name='name' required />
             </div>
-            <div className={styles.infoBlock}>
-              <h3>WhatsApp</h3>
-              <p>
-                {/* ACTION REQUIRED: Replace with your WhatsApp number */}
-                <a
-                  href="https://wa.me/56912345678"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  +56 9 1234 5678
-                </a>
-              </p>
+            <div className={styles.formGroup}>
+              <label htmlFor='email'>Correo Electrónico</label>
+              <input type='email' id='email' name='email' required />
             </div>
-             <div className={styles.infoBlock}>
-              <h3>Ubicación</h3>
-              <p>Llay-Llay, Valparaíso</p>
-              <p>Atención presencial y a distancia.</p>
+            <div className={styles.formGroup}>
+              <label htmlFor='message'>Tu Mensaje</label>
+              <textarea id='message' name='message' rows='6' required />
             </div>
-          </div>
-        </div>
+            <button type='submit' className='btn'>Enviar y dar el primer paso</button>
+          </form>
+        </section>
       </Container>
-    </div>
-  );
-};
-
-export default ContactPage;
+    </main>
+  )
+}
