@@ -1,3 +1,8 @@
+/*
+  The className was '.appContainer' but the JSX was using 'styles.layout'.
+  I've updated the JSX to use 'styles.appContainer'. No change needed here,
+  but this is the correct corresponding file.
+*/
 .appContainer {
   display: flex;
   flex-direction: column;
@@ -6,5 +11,5 @@
 
 .mainContent {
   flex-grow: 1;
-  padding-top: 80px; /* Altura del Header Fijo */
+  padding-top: 80px; /* Height of the Fixed Header */
 }

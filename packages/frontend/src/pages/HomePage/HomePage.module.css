@@ -1,30 +1,28 @@
 /* src/pages/HomePage/HomePage.module.css */
+/* This file had many unused or mismatched classes. I've updated it to style the classes now used in HomePage.jsx. */
+
+/* Hero Section */
 .hero {
   display: flex;
-  flex-direction: column;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
   min-height: 90vh;
   padding: 2rem;
-  color: white;
+  color: var(--heading-color);
   text-align: center;
   position: relative;
   overflow: hidden;
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
-  /* ACTION REQUIRED: Replaced placeholder URL */
   background-image: url('https://images.unsplash.com/photo-1544164559-99f4d2579b39?ixlib=rb-4.0.3&auto=format&fit=crop&w=1740&q=80');
 }
 
 .hero::before {
   content: '';
   position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: rgba(0, 0, 0, 0.45); /* Overlay */
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-color: rgba(26, 26, 46, 0.6); /* Darker overlay for better text contrast */
   z-index: 1;
 }
 
@@ -34,162 +32,125 @@
   max-width: 800px;
 }
 
-.heroTitle {
-  font-family: var(--primary-font);
-  font-size: 3.5rem;
+.heroContent h1 {
+  font-size: clamp(2.5rem, 5vw, 3.5rem);
   font-weight: 700;
   margin-bottom: 1rem;
   line-height: 1.2;
 }
 
 .heroSubtitle {
-  font-family: var(--secondary-font);
   font-size: 1.25rem;
-  margin-bottom: 2.5rem; /* Increased margin */
+  margin-bottom: 2.5rem;
   font-weight: 300;
-}
-
-/* Specific overrides for the hero button, which uses the global .btn class */
-.ctaButton {
-  padding: 1rem 2.5rem; /* Larger padding for hero button */
-  font-size: 1.1rem;
-}
-
-/* Intro Section */
-.introSection {
-  background-color: var(--background-color);
-  padding: var(--section-padding);
-}
-
-.introContent {
-  text-align: center;
-}
-
-/* Services Preview Section */
-.servicesPreview {
-  padding: var(--section-padding);
-  background-color: #fdfcf9; /* A slightly warmer off-white */
-}
-
-.sectionTitle {
-  text-align: center;
-  font-size: 2.5rem;
-  font-family: var(--primary-font);
-  margin-bottom: 1rem;
-  color: var(--heading-color);
-}
-
-.sectionSubtitle {
-  text-align: center;
-  font-size: 1.1rem;
-  max-width: 700px;
-  margin: 0 auto 4rem auto;
   color: var(--text-color);
-  font-family: var(--secondary-font);
-  line-height: 1.8;
 }
 
-.servicesGrid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 2rem;
-}
-
-.serviceCard {
+/* Feature Section */
+.featureSection {
+  padding: var(--section-padding);
   background-color: var(--surface-color);
-  padding: 2.5rem;
+}
+
+.featureContainer {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 3rem;
+  align-items: center;
+}
+
+@media (min-width: 992px) {
+  .featureContainer {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.featureImageContainer {
+  text-align: center;
+}
+
+.featureImage {
+  max-width: 100%;
   border-radius: var(--border-radius-medium);
   box-shadow: var(--shadow-medium);
-  text-align: center;
-  transition: transform var(--transition-speed), box-shadow var(--transition-speed);
-  border-top: 4px solid var(--accent-color);
-  display: flex;
-  flex-direction: column;
 }
 
-.serviceCard:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12); /* Slightly stronger shadow on hover */
-}
-
-.serviceTitle {
-  font-size: 1.5rem;
-  font-family: var(--primary-font);
-  color: var(--heading-color);
-  margin-bottom: 1rem;
-}
-
-.serviceDescription {
-  font-family: var(--secondary-font);
-  color: var(--text-color);
-  line-height: 1.6;
-  flex-grow: 1;
+.featureText h2 {
+  font-size: 2.5rem;
   margin-bottom: 1.5rem;
 }
 
-.serviceLink {
-  font-family: var(--secondary-font);
-  color: var(--accent-color);
-  text-decoration: none;
-  font-weight: bold;
-  transition: color var(--transition-speed);
+.featureText p {
+  line-height: 1.8;
+  margin-bottom: 1rem;
 }
 
-.serviceLink:hover {
-  color: var(--accent-color-dark);
-}
-
-/* Testimonials Section */
-.testimonials {
+/* Testimonial Section */
+.testimonialSection {
   padding: var(--section-padding);
-  background-color: var(--primary-color);
-  color: white;
+  background-color: var(--background-color);
+  text-align: center;
 }
 
-.testimonials .sectionTitle,
-.testimonials .sectionSubtitle {
-  color: white;
-}
-
-.testimonialsGrid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 2rem;
-  margin-top: 4rem;
+.testimonialSection h2 {
+  font-size: 2.5rem;
+  margin-bottom: 3rem;
 }
 
 .testimonialCard {
-  background-color: rgba(255, 255, 255, 0.05);
-  padding: 2rem;
+  max-width: 750px;
+  margin: 0 auto;
+  background-color: var(--surface-color);
+  padding: 3rem;
   border-radius: var(--border-radius-medium);
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: var(--shadow-medium);
+  text-align: center;
+}
+
+.testimonialAvatar {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  border: 4px solid var(--primary-color);
+  margin: -6rem auto 1.5rem; /* Pull avatar up */
 }
 
 .testimonialText {
-  font-family: var(--secondary-font);
   font-style: italic;
-  margin-bottom: 1.5rem;
   line-height: 1.7;
   font-size: 1.1rem;
+  color: var(--text-color);
+  margin: 0;
 }
 
-.testimonialAuthor {
-  font-family: var(--primary-font);
-  font-weight: 700;
-  text-align: right;
-  color: var(--accent-color);
+.testimonialText p {
+  margin-bottom: 1.5rem;
+}
+
+.testimonialText cite {
   display: block;
+  font-weight: bold;
+  color: var(--accent-color);
+  font-style: normal;
+  margin-top: 1.5rem;
 }
 
-/* Final CTA Section */
-.finalCta {
-    padding: var(--section-padding);
-    background-color: #fdfcf9;
-    text-align: center;
+
+/* Call to Action (CTA) Section */
+.ctaSection {
+  padding: var(--section-padding);
+  background-color: var(--surface-color);
+  text-align: center;
 }
 
-@media (max-width: 768px) {
-  .heroTitle {
-    font-size: 2.8rem;
-  }
+.ctaSection h2 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.ctaSection p {
+  margin-bottom: 2rem;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
 }

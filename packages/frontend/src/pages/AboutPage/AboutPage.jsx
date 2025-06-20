@@ -1,20 +1,26 @@
-import { Container } from '@/shared/ui/Container'
-import { useIntersectionObserver } from '@/shared/hooks/useIntersectionObserver'
-import styles from './AboutPage.module.css'
-import authorImage from '@/assets/images/author-image.jpg'
+// Corrected import for the Container component
+import Container from '@/shared/ui/Container/Container';
+import { useIntersectionObserver } from '@/shared/hooks/useIntersectionObserver';
+import styles from './AboutPage.module.css';
 
-export function AboutPage () {
-  useIntersectionObserver('.fade-in-section')
+// ASSET: The original 'author-image.jpg' is missing. Replaced with a placeholder.
+// import authorImage from '@/assets/images/author-image.jpg';
+
+export function AboutPage() {
+  useIntersectionObserver('.fade-in-section');
 
   return (
+    // Corrected className to match the CSS module
     <main className={styles.aboutPage}>
       <Container>
-        <section className={`${styles.aboutSection} fade-in-section`}>
-          <div className={styles.aboutImageContainer}>
-            <img src={authorImage} alt='El guía del proceso de liberación energética' className={styles.aboutImage} />
+        {/* Corrected className and structure to match the CSS module */}
+        <section className={`${styles.contentGrid} fade-in-section`}>
+          <div className={styles.imageContainer}>
+            <img src="https://placehold.co/350x350/A076F9/FFFFFF?text=Guía" alt='El guía del proceso de liberación energética' className={styles.profileImage} />
           </div>
-          <div className={styles.aboutText}>
-            <h1>Mi camino hasta aquí no fue una línea recta</h1>
+          <div className={styles.textContainer}>
+            <h1 className={styles.nameTitle}>Mi camino hasta aquí no fue una línea recta</h1>
+            <h2 className={styles.subtitle}>Guía en Liberación Energética</h2>
             <p>
               Durante años, sentí que algo dentro de mí no encajaba. Navegaba la vida con una sensación de vacío y cargando con pesos que no comprendía, pero que me agotaban profundamente. Era como vivir a medio gas, sabiendo que había algo más, pero sin saber cómo alcanzarlo.
             </p>
@@ -32,5 +38,8 @@ export function AboutPage () {
         </section>
       </Container>
     </main>
-  )
+  );
 }
+
+// Added default export
+export default AboutPage;

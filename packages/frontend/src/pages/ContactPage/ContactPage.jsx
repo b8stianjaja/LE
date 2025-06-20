@@ -1,31 +1,45 @@
-import { Container } from '@/shared/ui/Container'
-import { useIntersectionObserver } from '@/shared/hooks/useIntersectionObserver'
-import styles from './ContactPage.module.css'
+// Corrected import for the Container component
+import Container from '@/shared/ui/Container/Container';
+import { useIntersectionObserver } from '@/shared/hooks/useIntersectionObserver';
+import styles from './ContactPage.module.css';
 
-export function ContactPage () {
-  useIntersectionObserver('.fade-in-section')
+export function ContactPage() {
+  useIntersectionObserver('.fade-in-section');
 
   const handleSubmit = (event) => {
-    event.preventDefault()
-    // Here you would handle the form submission,
-    // for example, by sending the data to a server.
-    alert('Gracias por tu mensaje. Te responderé a la brevedad.')
-    event.target.reset()
-  }
+    event.preventDefault();
+    // This is a placeholder for actual form submission logic
+    alert('Gracias por tu mensaje. Te responderé a la brevedad.');
+    event.target.reset();
+  };
 
   return (
     <main className={styles.contactPage}>
       <Container>
-        <section className={`${styles.contactSection} fade-in-section`}>
-          <div className={styles.contactInfo}>
-            <h2>Tu viaje comienza con una conversación</h2>
-            <p>
-              Dar este paso puede generar dudas. Es normal. Estoy aquí para resolverlas sin ningún compromiso.
+        <header className='fade-in-section'>
+            <h1 className={styles.pageTitle}>Tu viaje comienza con una conversación</h1>
+            <p className={styles.pageSubtitle}>
+              Dar este paso puede generar dudas. Es normal. Estoy aquí para resolverlas sin ningún compromiso. Tu mensaje es completamente confidencial.
             </p>
+        </header>
+        
+        {/* Corrected className to match the CSS module */}
+        <section className={`${styles.contactWrapper} fade-in-section`}>
+          <div className={styles.infoWrapper}>
+            <h2>Escríbeme y cuéntame qué te trae por aquí</h2>
             <p>
-              Escríbeme y cuéntame qué te trae por aquí. Tu mensaje es completamente confidencial y es el inicio de un camino hacia tu bienestar.
+              Ya sea que tengas una pregunta específica sobre las sesiones, curiosidad sobre el proceso o simplemente quieras compartir tu sentir, este es el lugar.
             </p>
+             <div className={styles.infoBlock}>
+              <h3>Disponibilidad</h3>
+              <p>Las sesiones se coordinan de forma flexible. Encontraremos el momento perfecto para tu calma.</p>
+            </div>
+             <div className={styles.infoBlock}>
+              <h3>Ubicación</h3>
+              <p>Terapias disponibles en Llay-Llay y modalidades a distancia para tu comodidad.</p>
+            </div>
           </div>
+
           <form className={styles.contactForm} onSubmit={handleSubmit}>
             <div className={styles.formGroup}>
               <label htmlFor='name'>Nombre</label>
@@ -37,12 +51,15 @@ export function ContactPage () {
             </div>
             <div className={styles.formGroup}>
               <label htmlFor='message'>Tu Mensaje</label>
-              <textarea id='message' name='message' rows='6' required />
+              <textarea id='message' name='message' rows='6' placeholder='Cuéntame un poco sobre lo que te gustaría trabajar...' required />
             </div>
-            <button type='submit' className='btn'>Enviar y dar el primer paso</button>
+            <button type='submit' className={`btn ${styles.submitButton}`}>Enviar y dar el primer paso</button>
           </form>
         </section>
       </Container>
     </main>
-  )
+  );
 }
+
+// Added default export
+export default ContactPage;

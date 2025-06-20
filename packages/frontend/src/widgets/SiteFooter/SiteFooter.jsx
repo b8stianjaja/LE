@@ -2,14 +2,16 @@
 import Container from "@/shared/ui/Container/Container";
 import styles from './SiteFooter.module.css'
 
-// Ensure this is a named export
 export const SiteFooter = () => {
   const currentYear = new Date().getFullYear();
 
   return (
     <footer className={styles.footer}>
       <Container>
-        <p>&copy; {currentYear} Liberación Energética. Todos los derechos reservados.</p>
+        {/* Wrapped the text in a div with the 'footerContent' class to apply styles */}
+        <div className={styles.footerContent}>
+            <p>&copy; {currentYear} Liberación Energética. Todos los derechos reservados.</p>
+        </div>
       </Container>
     </footer>
   );

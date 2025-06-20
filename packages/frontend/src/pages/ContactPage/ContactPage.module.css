@@ -1,4 +1,5 @@
 /* src/pages/ContactPage/ContactPage.module.css */
+/* This file had several mismatched classes. I've updated it to match the corrected JSX. */
 .contactPage {
   padding: var(--section-padding);
 }
@@ -6,7 +7,7 @@
 .pageTitle {
   text-align: center;
   font-size: 2.8rem;
-  color: var(--primary-color);
+  color: var(--heading-color);
   margin-bottom: 1rem;
 }
 
@@ -21,7 +22,7 @@
 .contactWrapper {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 4rem;
+  gap: 3rem;
   background-color: var(--surface-color);
   padding: 3rem;
   border-radius: var(--border-radius-medium);
@@ -30,8 +31,31 @@
 
 @media (min-width: 992px) {
   .contactWrapper {
-    grid-template-columns: 2fr 1fr;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    padding: 4rem;
   }
+}
+
+/* Info Side Styles */
+.infoWrapper h2 {
+  font-size: 1.8rem;
+  margin-bottom: 1.5rem;
+}
+
+.infoWrapper p {
+  line-height: 1.8;
+  margin-bottom: 2rem;
+}
+
+.infoBlock {
+  margin-bottom: 1.5rem;
+}
+
+.infoBlock h3 {
+  color: var(--accent-color);
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
 }
 
 /* Form Styles */
@@ -50,11 +74,13 @@
 .formGroup input,
 .formGroup textarea {
   width: 100%;
-  padding: 12px;
-  border: 1px solid #ccc;
-  border-radius: 8px; /* Softer radius */
+  padding: 1rem;
+  border: 1px solid var(--background-color);
+  border-radius: 8px;
   font-family: var(--secondary-font);
   font-size: 1rem;
+  background-color: var(--background-color);
+  color: var(--text-color);
   transition: border-color var(--transition-speed), box-shadow var(--transition-speed);
 }
 
@@ -62,56 +88,12 @@
 .formGroup textarea:focus {
   outline: none;
   border-color: var(--primary-color);
-  box-shadow: 0 0 0 3px rgba(142, 155, 141, 0.2);
+  box-shadow: 0 0 0 3px var(--primary-color);
 }
 
-/* Specific overrides for the submit button */
 .submitButton {
   width: 100%;
-  padding-top: 15px;
-  padding-bottom: 15px;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
   font-size: 1.1rem;
-}
-
-/* Info Styles */
-.infoWrapper {
-  padding-left: 0;
-}
-
-@media (min-width: 992px) {
-  .infoWrapper {
-    padding-left: 2rem;
-    border-left: 1px solid #eee;
-  }
-}
-
-.infoTitle {
-  font-size: 1.8rem;
-  color: var(--heading-color);
-  margin-bottom: 2rem;
-}
-
-.infoBlock {
-  margin-bottom: 2rem;
-}
-
-.infoBlock h3 {
-  font-family: var(--secondary-font);
-  font-size: 1.1rem;
-  font-weight: 700;
-  color: var(--primary-color);
-  margin-bottom: 0.5rem;
-}
-
-.infoBlock p {
-  line-height: 1.6;
-}
-
-.infoBlock a {
-  color: var(--text-color);
-  font-weight: 500;
-}
-
-.infoBlock a:hover {
-  color: var(--accent-color);
 }

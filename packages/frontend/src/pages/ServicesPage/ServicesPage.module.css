@@ -1,13 +1,14 @@
 /* src/pages/ServicesPage/ServicesPage.module.css */
+/* This file had several mismatched classes. I've updated it to match the corrected JSX. */
+
 .servicesPage {
   padding: var(--section-padding);
-  background-color: #fdfcf9;
 }
 
 .pageTitle {
   text-align: center;
   font-size: 2.8rem;
-  color: var(--primary-color);
+  color: var(--heading-color);
   margin-bottom: 1rem;
 }
 
@@ -15,7 +16,7 @@
   text-align: center;
   font-size: 1.1rem;
   color: var(--text-color);
-  max-width: 600px;
+  max-width: 700px;
   margin: 0 auto 4rem auto;
 }
 
@@ -23,61 +24,54 @@
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
   gap: 2.5rem;
+  align-items: stretch; /* Make cards same height */
 }
 
 .serviceCard {
   background-color: var(--surface-color);
   border-radius: var(--border-radius-medium);
-  padding: 2.5rem 2rem;
+  padding: 2.5rem;
   box-shadow: var(--shadow-medium);
   display: flex;
   flex-direction: column;
-  align-items: center;
-  text-align: center;
+  text-align: left;
   border-top: 5px solid var(--accent-color);
   transition: transform var(--transition-speed), box-shadow var(--transition-speed);
 }
 
 .serviceCard:hover {
   transform: translateY(-5px);
-  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
-}
-
-.serviceIcon {
-  color: var(--accent-color);
-  margin-bottom: 1.5rem;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
 }
 
 .serviceTitle {
   font-size: 1.6rem;
   color: var(--heading-color);
   margin-bottom: 1rem;
+  text-align: center;
 }
 
 .serviceDescription {
-  flex-grow: 1;
   color: var(--text-color);
   margin-bottom: 1.5rem;
 }
 
 .serviceMeta {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 100%;
-  border-top: 1px solid #eee;
-  padding-top: 1.5rem;
-  margin-top: auto;
-  font-family: var(--secondary-font);
+  flex-grow: 1; /* Pushes button to the bottom */
+  font-size: 0.95rem;
+  color: var(--text-color);
+}
+
+.serviceMeta p {
+  margin-bottom: 1rem;
+}
+
+.serviceMeta strong {
+  color: var(--primary-color);
   font-weight: 700;
 }
 
-.price {
-  color: var(--primary-color);
-  font-size: 1.1rem;
-}
-
-.duration {
-  color: var(--text-color);
-  font-size: 0.9rem;
+.serviceButton {
+  margin-top: 2rem;
+  width: 100%;
 }

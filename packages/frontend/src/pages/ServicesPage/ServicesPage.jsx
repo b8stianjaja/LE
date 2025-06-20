@@ -1,10 +1,11 @@
-import { Link } from 'react-router-dom'
-import { Container } from '@/shared/ui/Container'
-import { useIntersectionObserver } from '@/shared/hooks/useIntersectionObserver'
-import styles from './ServicesPage.module.css'
+import { Link } from 'react-router-dom';
+// Corrected import for the Container component
+import Container from '@/shared/ui/Container/Container';
+import { useIntersectionObserver } from '@/shared/hooks/useIntersectionObserver';
+import styles from './ServicesPage.module.css';
 
-export function ServicesPage () {
-  useIntersectionObserver('.fade-in-section')
+export function ServicesPage() {
+  useIntersectionObserver('.fade-in-section');
 
   const services = [
     {
@@ -25,32 +26,35 @@ export function ServicesPage () {
       idealFor: 'Mudanzas, después de períodos de conflicto, o si sientes tu espacio "pesado" o estancado.',
       outcome: 'Un ambiente que te nutre, te apoya y se siente como un verdadero refugio de tranquilidad y buenas vibras.'
     }
-  ]
+  ];
 
   return (
+    // Corrected structure and classNames to match CSS module
     <main className={styles.servicesPage}>
       <Container>
-        <header className={`${styles.servicesHeader} fade-in-section`}>
-          <h1>Tu Caja de Herramientas para la Libertad Emocional</h1>
-          <p>Cada servicio está diseñado como una llave para abrir una puerta diferente en tu interior. Elige el que más resuene contigo hoy.</p>
+        <header className='fade-in-section'>
+          <h1 className={styles.pageTitle}>Tu Caja de Herramientas para la Libertad Emocional</h1>
+          <p className={styles.pageSubtitle}>Cada servicio está diseñado como una llave para abrir una puerta diferente en tu interior. Elige el que más resuene contigo hoy.</p>
         </header>
 
         <section className={styles.servicesGrid}>
           {services.map((service, index) => (
-            <div key={index} className={`${styles.serviceCard} fade-in-section delay-${(index + 1) * 200}`}>
-              <div className={styles.serviceCardContent}>
-                <h3>{service.title}</h3>
-                <p>{service.description}</p>
-                <div className={styles.serviceDetails}>
+            <div key={index} className={`fade-in-section ${styles.serviceCard}`}>
+              <h3 className={styles.serviceTitle}>{service.title}</h3>
+              <p className={styles.serviceDescription}>{service.description}</p>
+              <div className={styles.serviceMeta}>
                   <p><strong>Ideal para ti si buscas:</strong> {service.idealFor}</p>
                   <p><strong>El resultado que puedes esperar:</strong> {service.outcome}</p>
-                </div>
               </div>
-              <Link to='/contact' className='btn'>Quiero saber más</Link>
+              {/* Corrected Link path to '/contacto' */}
+              <Link to='/contacto' className={`btn ${styles.serviceButton}`}>Quiero saber más</Link>
             </div>
           ))}
         </section>
       </Container>
     </main>
-  )
+  );
 }
+
+// Added default export
+export default ServicesPage;
