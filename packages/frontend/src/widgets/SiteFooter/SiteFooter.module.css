@@ -1,10 +1,11 @@
 /* src/widgets/SiteFooter/SiteFooter.module.css */
 
 .footer {
-  background-color: var(--heading-color);
-  color: var(--background-color);
-  padding: 2.5rem 0; /* Increased padding */
+  background-color: var(--background-color);
+  color: var(--text-color);
+  padding: 2.5rem 0;
   margin-top: auto;
+  border-top: 1px solid var(--surface-color);
 }
 
 .footerContent {
@@ -12,23 +13,36 @@
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
-  gap: 1.5rem; /* Increased gap */
+  gap: 1.5rem;
   text-align: center;
+}
+
+@media (max-width: 768px) {
+  .footerContent {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
 }
 
 .footerContent p {
   margin: 0;
-  font-size: 1rem; /* Increased font size */
+  font-size: 0.9rem;
 }
 
-.footerContent a {
-  color: var(--surface-color);
-  text-decoration: none; /* Removed underline for a cleaner look */
-  border-bottom: 1px solid transparent; /* Add a border for the hover effect */
-  transition: color var(--transition-speed), border-color var(--transition-speed);
+/* Social Links Styles */
+.socialLinks {
+  display: flex;
+  gap: 1.5rem;
+  align-items: center;
 }
 
-.footerContent a:hover {
+.socialLinks a {
+  font-size: 1.5rem;
+  color: var(--primary-color);
+  transition: color var(--transition-speed), transform var(--transition-speed);
+}
+
+.socialLinks a:hover {
+  transform: scale(1.1);
   color: var(--accent-color);
-  border-bottom: 1px solid var(--accent-color); /* Underline on hover */
 }

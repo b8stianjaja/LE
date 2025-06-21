@@ -2,7 +2,8 @@
 
 import { Outlet } from 'react-router-dom';
 import { SiteHeader } from '../SiteHeader/SiteHeader';
-import { SiteFooter } from '../SiteFooter/SiteFooter';
+// Corrected: Removed curly braces to correctly import the default export
+import SiteFooter from '../SiteFooter/SiteFooter';
 import styles from './Layout.module.css';
 
 export const Layout = () => {

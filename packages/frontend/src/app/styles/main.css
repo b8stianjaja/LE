@@ -17,6 +17,7 @@
 
   /* Magical Color Palette */
   --primary-color: #A076F9;      /* A mystical, medium purple for key elements */
+  --primary-color-light: #D7BDE2;    /* Added this missing variable */
   --secondary-color: #D7BDE2;    /* A soft, light lavender for complementary accents */
   --text-color: #EAE6F9;         /* A very light, soft lavender for body text on dark backgrounds */
   --heading-color: #FFFFFF;      /* Pure white for prominent headings */
@@ -29,6 +30,7 @@
   --section-padding: 5rem 0;
   --border-radius-medium: 15px;
   --border-radius-pill: 50px;
+  --shadow-light: 0 4px 15px rgba(0, 0, 0, 0.1);
   --shadow-medium: 0 10px 30px rgba(0, 0, 0, 0.2); /* Slightly darker shadow for dark bg */
   --transition-speed: 0.3s ease;
 }
