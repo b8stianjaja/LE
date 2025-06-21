@@ -18,7 +18,6 @@
 }
 
 .profileImage {
-  /* Reduced size for better balance */
   width: 200px;
   height: 200px;
   border-radius: 50%;
@@ -28,7 +27,6 @@
 }
 
 .titleContainer .nameTitle {
-  /* Reduced font size */
   font-size: 2.5rem;
   color: var(--heading-color);
   line-height: 1.2;
@@ -74,41 +72,58 @@
   display: inline-block;
 }
 
-/* --- Estilos de Especializaciones (sin cambios estructurales) --- */
+/* === ESTILO PREMIUM PARA BURBUJAS v2 === */
 .specializationsList {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.8rem 0.6rem;
+  gap: 0.8rem; 
   margin-bottom: 2.5rem;
 }
 
 .specializationTag {
   display: inline-block;
-  background-color: transparent;
-  color: var(--primary-color);
-  padding: 0.5rem 1.2rem;
+  padding: 0.7rem 1.4rem;
   border-radius: var(--border-radius-pill);
   font-family: var(--secondary-font);
   font-size: 0.9rem;
   font-weight: 500;
-  border: 1px solid var(--primary-color);
   cursor: default;
-  transition: all 0.3s ease;
+  
+  /* MEJORA 1: Fondo con gradiente sutil y borde transparente */
+  color: var(--text-color);
+  background: linear-gradient(145deg, #3a3a5a, var(--surface-color)); /* De oscuro a más oscuro */
+  border: 1px solid rgba(160, 118, 249, 0.4); /* Borde semi-transparente del color primario */
+  
+  /* MEJORA 2: Transición más sofisticada para múltiples propiedades */
+  transition: 
+    transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1),
+    box-shadow 0.3s cubic-bezier(0.25, 0.8, 0.25, 1),
+    background 0.3s ease,
+    color 0.3s ease;
 }
 
 .specializationTag:hover {
-  background-color: var(--primary-color);
-  color: var(--surface-color);
-  transform: translateY(-3px);
-  box-shadow: var(--shadow-light);
+  /* MEJORA 3: Efecto de elevación y "glow" (resplandor) */
+  transform: translateY(-4px) scale(1.02);
+  box-shadow: 0 8px 25px rgba(160, 118, 249, 0.25); /* Sombra/Glow con el color primario */
+
+  /* MEJORA 4: Gradiente más vivo y texto de alto contraste en hover */
+  color: #ffffff;
+  background: linear-gradient(145deg, var(--accent-color), var(--primary-color));
+  border-color: rgba(249, 214, 118, 0.7); /* Borde del color de acento */
+  
+  /* MEJORA 5: Sombra de texto para que resalte más */
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
 }
 
+
+/* --- Botón CTA (sin cambios) --- */
 .ctaButton {
   display: inline-block;
   margin-top: 1rem;
   padding: 0.9rem 2rem;
   background-color: var(--accent-color);
-  color: var(--background-color); /* Corrected from --bg-color */
+  color: var(--background-color);
   border-radius: var(--border-radius-pill);
   text-decoration: none;
   font-family: var(--secondary-font);

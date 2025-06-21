@@ -1,96 +1,86 @@
 /* src/app/styles/main.css */
 
-/* A simple CSS reset */
-*,
-*::before,
-*::after {
+/* === VARIABLES DE COLOR Y FUENTE === */
+:root {
+  --primary-font: 'Lora', serif;
+  --secondary-font: 'Montserrat', sans-serif;
+
+  /* Paleta de colores Mágica y Etérea */
+  --background-color: #1A1A2E; /* Azul noche profundo */
+  --surface-color: #2C2C44;    /* Azul acero, para tarjetas y superficies */
+  --primary-color: #A076F9;    /* Púrpura lavanda, para acentos principales */
+  --primary-color-light: rgba(160, 118, 249, 0.4); /* Variante clara para bordes/hovers */
+  --accent-color: #F9D676;     /* Dorado cálido, para llamadas a la acción */
+  
+  --heading-color: #FFFFFF;    /* Blanco puro para títulos */
+  --text-color: #EAEAEA;       /* Blanco roto para texto general, más suave a la vista */
+
+  /* === Estilos consistentes para bordes y sombras === */
+  --border-radius-small: 4px;
+  --border-radius-medium: 8px;
+  --border-radius-large: 16px;
+  --border-radius-pill: 50px;
+  
+  --shadow-light: 0 2px 8px rgba(0, 0, 0, 0.2);
+  --shadow-medium: 0 4px 15px rgba(0, 0, 0, 0.25);
+  --shadow-large: 0 8px 30px rgba(0, 0, 0, 0.3);
+
+  /* === Espaciado General === */
+  --section-padding: 5rem 0;
+}
+
+/* === RESET BÁSICO Y ESTILOS GLOBALES === */
+*, *::before, *::after {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
 
-/* Define root variables for a magical, ethereal color palette and fonts */
-:root {
-  /* Typography */
-  --primary-font: 'Lora', serif;
-  --secondary-font: 'Montserrat', sans-serif;
-
-  /* Magical Color Palette */
-  --primary-color: #A076F9;      /* A mystical, medium purple for key elements */
-  --primary-color-light: #D7BDE2;    /* Added this missing variable */
-  --secondary-color: #D7BDE2;    /* A soft, light lavender for complementary accents */
-  --text-color: #EAE6F9;         /* A very light, soft lavender for body text on dark backgrounds */
-  --heading-color: #FFFFFF;      /* Pure white for prominent headings */
-  --background-color: #1A1A2E;    /* A deep, dark cosmic blue for the background */
-  --surface-color: #2C2C44;       /* A slightly lighter dark blue/purple for cards */
-  --accent-color: #F7C873;         /* A warm, magical gold for buttons and highlights */
-  --accent-color-dark: #E6B45A;    /* A darker gold for hover states */
-
-  /* Design Tokens */
-  --section-padding: 5rem 0;
-  --border-radius-medium: 15px;
-  --border-radius-pill: 50px;
-  --shadow-light: 0 4px 15px rgba(0, 0, 0, 0.1);
-  --shadow-medium: 0 10px 30px rgba(0, 0, 0, 0.2); /* Slightly darker shadow for dark bg */
-  --transition-speed: 0.3s ease;
-}
-
 body {
   font-family: var(--secondary-font);
-  color: var(--text-color);
   background-color: var(--background-color);
-  line-height: 1.7;
-}
-
-/* Prevent scrolling when mobile menu is open */
-body.mobile-menu-open {
-  overflow: hidden;
+  color: var(--text-color);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--primary-font);
   color: var(--heading-color);
-  margin-bottom: 0.75rem;
+  line-height: 1.3;
 }
 
 a {
-  text-decoration: none;
   color: var(--primary-color);
-  transition: color var(--transition-speed);
-}
-
-a:hover, a:focus {
-  color: var(--secondary-color);
-}
-
-/* Generic Button Style */
-.btn {
-  display: inline-block;
-  font-family: var(--secondary-font);
-  background-color: var(--accent-color);
-  color: #1A1A2E; /* Dark text on gold button for contrast */
-  padding: 0.8rem 2.2rem;
-  border-radius: var(--border-radius-pill);
   text-decoration: none;
-  font-weight: 700;
-  font-size: 1rem;
-  border: none;
-  cursor: pointer;
-  transition: background-color var(--transition-speed), transform var(--transition-speed);
+  transition: color 0.3s ease;
 }
 
-.btn:hover {
-  background-color: var(--accent-color-dark);
-  transform: translateY(-3px);
-  color: #1A1A2E;
+a:hover {
+  color: var(--accent-color);
 }
 
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
 
-/* Animation Helper Classes */
+/* === CLASES DE UTILIDAD === */
+
+/* Contenedor principal para centrar contenido */
+.container {
+  max-width: 1140px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+/* Animación de entrada para secciones */
 .fade-in-section {
   opacity: 0;
-  transform: translateY(30px);
-  transition: opacity 0.8s cubic-bezier(0.6, 0.2, 0.4, 1), transform 0.8s cubic-bezier(0.6, 0.2, 0.4, 1);
+  transform: translateY(20px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
 }
 
 .fade-in-section.is-visible {
@@ -98,10 +88,37 @@ a:hover, a:focus {
   transform: translateY(0);
 }
 
-.delay-200 {
-  transition-delay: 200ms;
+/* === Botones === */
+.btn {
+  display: inline-block;
+  padding: 0.9rem 2.2rem;
+  font-family: var(--secondary-font);
+  font-weight: 700;
+  font-size: 1rem;
+  text-decoration: none;
+  border: 2px solid transparent;
+  border-radius: var(--border-radius-pill);
+  cursor: pointer;
+  
+  /* Transición mejorada para el nuevo efecto de hover */
+  transition: 
+    transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1),
+    box-shadow 0.3s cubic-bezier(0.25, 0.8, 0.25, 1),
+    background 0.4s ease,
+    color 0.3s ease;
 }
 
-.delay-400 {
-  transition-delay: 400ms;
+.btn-primary {
+  background-color: var(--primary-color);
+  color: white;
+}
+
+/* === ESTILO PREMIUM DE HOVER PARA BOTONES === */
+.btn-primary:hover, .btn-primary:focus {
+  color: white;
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+  
+  /* Aplicamos el gradiente vibrante para un feedback claro */
+  background: linear-gradient(145deg, var(--accent-color), var(--primary-color));
 }

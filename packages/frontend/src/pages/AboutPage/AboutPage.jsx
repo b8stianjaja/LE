@@ -15,8 +15,9 @@ export function AboutPage() {
     'Cruz de Ankh',
     'Alineación de Chakras',
     'Velomancia',
-    'Terapias Florales',
+    'Flores de Bach',
     'Limpieza de Espacios',
+    'Péndulo Hebreo'
   ];
 
   return (
@@ -51,15 +52,15 @@ export function AboutPage() {
 
           <div className={styles.specializationsContainer}>
             <h2 className={styles.sectionTitle}>Mis Herramientas</h2>
-            {/* --- REVISED SPECIALIZATIONS LIST --- */}
+            
+            {/* === DISEÑO DE BURBUJAS PREMIUM === */}
             <div className={styles.specializationsList}>
-              <p>
-                {specializations.join(' • ')}
-              </p>
+              {specializations.map((tool, index) => (
+                <span key={index} className={styles.specializationTag}>
+                  {tool}
+                </span>
+              ))}
             </div>
-            <Link to='/servicios' className={styles.ctaButton}>
-              Descubre las Terapias
-            </Link>
           </div>
         </section>
       </Container>
