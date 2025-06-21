@@ -51,12 +51,11 @@ export function AboutPage() {
 
           <div className={styles.specializationsContainer}>
             <h2 className={styles.sectionTitle}>Mis Herramientas</h2>
+            {/* --- REVISED SPECIALIZATIONS LIST --- */}
             <div className={styles.specializationsList}>
-              {specializations.map((tool) => (
-                <span key={tool} className={styles.specializationTag}>
-                  {tool}
-                </span>
-              ))}
+              <p>
+                {specializations.join(' • ')}
+              </p>
             </div>
             <Link to='/servicios' className={styles.ctaButton}>
               Descubre las Terapias
