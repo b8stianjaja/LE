@@ -88,7 +88,7 @@ img {
   transform: translateY(0);
 }
 
-/* === Botones === */
+/* === Botones (Estilo Consistente v2) === */
 .btn {
   display: inline-block;
   padding: 0.9rem 2.2rem;
@@ -96,29 +96,35 @@ img {
   font-weight: 700;
   font-size: 1rem;
   text-decoration: none;
-  border: 2px solid transparent;
   border-radius: var(--border-radius-pill);
   cursor: pointer;
-  
-  /* Transición mejorada para el nuevo efecto de hover */
+  text-align: center;
+  border: 1px solid transparent; /* Borde sutil para el efecto hover */
+
+  /* ESTADO BASE: Una llamada a la acción clara, usando el color primario */
+  color: var(--heading-color);
+  background: linear-gradient(145deg, #B58DFF, var(--primary-color)); /* Gradiente sutil del primario */
+  box-shadow: var(--shadow-medium);
+
+  /* Transición fluida para una interacción premium */
   transition: 
     transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1),
     box-shadow 0.3s cubic-bezier(0.25, 0.8, 0.25, 1),
     background 0.4s ease,
-    color 0.3s ease;
+    border-color 0.3s ease;
 }
 
-.btn-primary {
-  background-color: var(--primary-color);
-  color: white;
-}
+.btn:hover,
+.btn:focus {
+  /* Efecto "mágico" de elevación y resplandor al interactuar */
+  transform: translateY(-4px);
+  box-shadow: 0 10px 25px rgba(160, 118, 249, 0.35); /* Resplandor púrpura más pronunciado */
 
-/* === ESTILO PREMIUM DE HOVER PARA BOTONES === */
-.btn-primary:hover, .btn-primary:focus {
-  color: white;
-  transform: translateY(-3px);
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
-  
-  /* Aplicamos el gradiente vibrante para un feedback claro */
+  /* El gradiente característico del tema aparece en hover */
   background: linear-gradient(145deg, var(--accent-color), var(--primary-color));
+  
+  /* Detalle final en el borde para un acabado pulido */
+  border-color: rgba(249, 214, 118, 0.7);
+  
+  outline: none;
 }
